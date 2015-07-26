@@ -1,0 +1,11 @@
+核心函数:
+	jQuery(selector,[context]) -- 查找指定对象
+	jQuery(elements) -- 将dom对象转换为jQuery对象(标签选择器)
+	jQuery(html,[ownerDocument]) -- 将html转换jQuery对象
+	jQuery(callback) -- $(document).ready()的简写
+			    callback为DOM加载完成后要执行的函数
+
+jQuery()可以直接使用$()取代
+	jQuery(document).ready(function(){…});
+	和 $(document).ready(function(){…});
+	简化为 $(function(){ … });
