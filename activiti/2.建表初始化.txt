@@ -1,0 +1,22 @@
+代码创建
+	ProcessEngineConfiguration processEngineConfiguration = ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
+	processEngineConfiguration.setJdbcDriver("com.mysql.jdbc.Driver");//连接数据库
+	processEngineConfiguration.setJdbcUrl("jdbc:mysql://localhost:3306/activiti?useUnicode=true&characterEncoding=utf8");
+	processEngineConfiguration.setJdbcUsername("root");
+	processEngineConfiguration.setJdbcPassword("password");
+	//添加自动创建表
+	processEngineConfiguration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
+	//创建核心引擎对象ProcessEngine
+	ProcessEngine processEngine = processEngineConfiguration.buildProcessEngine();
+
+配置activiti.cfg.xml创建
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration" >
+		<property name="jdbcDriver" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/activiti?useUnicode=true&amp;characterEncoding=utf8"/>
+		<property name="jdbcUsername" value="root"/>
+		<property name="jdbcPassword" value="password"/>
+		<property name="databaseSchemaUpdate" value="true"/>		
+	</bean>
+	
+	ProcessEngine processEngine=ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti.cfg.xml").buildProcessEngine();
+	//ProcessEngine processEngine =ProcessEngines.getDefaultProcessEngine();//加载默认配置文件activiti.cfg.xml

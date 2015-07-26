@@ -1,0 +1,37 @@
+act_re_*(3): ’re’表示repository,带此前缀的表包含的是静态信息
+act_ru_*(6): ’ru’表示runtime,这是运行时的表存储着流程变量
+act_id_*(4): ’id’表示identity,这些表包含标识的信息
+act_hi_*(8): ’hi’表示history,就是这些表包含着历史的相关数据
+act_ge_*(2): 'ge'表示general,各种情况都使用的数据
+
+流程部署,流程定义相关
+act_ru_deployment: 流程部署对象表
+act_ru_procdef: 流程定义表
+act_ge_bytearray: 资源文件表
+act_ge_property: 主键生成策略表(生成下一个部署ID的值)
+
+流程实例相关(流程实例、执行对象、任务对象)
+act_ru_execution: 正在执行的执行对象表
+act_hi_procinst: 流程实例的历史表
+act_ru_task: 正在执行的任务表（只有流程执行到userTask节点的时候，引擎才向该表插入数据）
+act_hi_taskinst: 任务历史表（只有流程执行到userTask节点的时候，引擎才向该表插入数据）
+act_hi_actinst: 活动的历史表（流程中所有走过的节点活动信息都会存放在这里）
+
+流程变量相关
+act_ru_variable: 正在执行的流程变量表
+act_hi_varinst: 流程变量历史表
+
+历史记录相关
+act_hi_procinst: 流程实例历史表(可以根据结束时间查看流程是否结束)
+act_hi_taskinst: 任务历史表(存放任务节点执行的历史数据,只有任务节点的动作叫任务)
+act_hi_actinst: 活动的历史表(存放工作流中所有节点,任何一个节点都叫活动)
+
+
+任务办理人表
+act_ru_identitylink: 正在执行的任务办理人-个人任务，组任务
+act_hi_identitylink: 任务办理人历史表-个人任务，组任务
+
+用户角色组
+act_id_user: 用户表
+act_id_group: 角色表-组
+act_id_membership: 用户角色关联表
