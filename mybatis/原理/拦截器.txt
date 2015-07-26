@@ -1,0 +1,18 @@
+相关的类
+1.Plugin：也就是我们说的“插板”类， 继承了InvocationHandler 接口，主要的职责是将目标对象、拦截器组装成一个新的代理类。
+2.Interceptor 拦截器的接口：
+3.Invocation 真正对目标类方法的拦截的实现， 这里没有什么说的。
+  值得一提的是， 如果我们想实现类似spring的拦截器，比如说前置通知、后置通知、环绕通知等，应该是可以在这里做文章的。
+
+
+每一个拦截器都必须实现上面的三个方法，其中：
+1)Object intercept(Invocation invocation)是实现拦截逻辑的地方，内部要通过invocation.proceed()显式地推进责任链前进，也就是调用下一个拦截器拦截目标方法。
+2)Object plugin(Object target) 就是用当前这个拦截器生成对目标target的代理，实际是通过Plugin.wrap(target,this) 来完成的，把目标target和拦截器this传给了包装函数。
+3)setProperties(Properties properties)用于设置额外的参数，参数配置在拦截器的Properties节点里。
+注解里描述的是指定拦截方法的签名  [type,method,args] （即对哪种对象的哪种方法进行拦截），它在拦截前用于决断。
+
+
+Plugin类有三个属性：
+private Object target;//被代理的目标类
+private Interceptor interceptor;//对应的拦截器
+private Map<Class<?>, Set<Method>> signatureMap;//拦截器拦截的方法缓存
