@@ -1,0 +1,18 @@
+ls：查看文件与目录
+	ls [-aAdfFhilnrRst] 目录名称
+	ls [--color={never,auto,always}] 目录名称
+	ls [--full-time] 目录名称
+	-a：全部的文件，包括隐藏文件
+	-d：仅列出目录本身
+	-h：将文件内容以易读方式列出来
+	-l：列出长数据串，包含文件的属性与权限等数据
+
+cp：复制文件或目录
+	cp [-adfilprsu] source directory
+	cp [-adfilprsu] source1 source2 ... directory
+	-a：相当于 -pdr
+	-d：如果文件是连接文件属性，则复制连接文件属性而非文件本身
+	-f：强制force的意思，若目标文件已存在且无法开启
+	-i：
+	-p：
+	-r：

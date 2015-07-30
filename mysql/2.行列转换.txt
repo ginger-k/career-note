@@ -1,0 +1,50 @@
+行转列
+
+场景1：销售明细表 -- 汇总，两行多列
+	date_time	date_sum  --->	1月	2月	3月	
+	2015/6/1	10		30	70	110
+	2015/6/2	20
+	2015/7/1	30
+	2015/7/2	40
+	2015/8/1	50
+	2015/8/2	60
+#1.先汇总，再CROSS JOIN笛卡尔乘积
+SELECT * FROM (
+    SELECT SUM(sd.`date_sum`) AS '6月' FROM sale_detail sd  WHERE MONTH(sd.`date_time`)=6 GROUP BY MONTH(sd.`date_time`)
+) a CROSS JOIN(
+    SELECT SUM(sd.`date_sum`) AS '7月' FROM sale_detail sd  WHERE MONTH(sd.`date_time`)=7 GROUP BY MONTH(sd.`date_time`)
+) b CROSS JOIN(
+    SELECT SUM(sd.`date_sum`) AS '8月' FROM sale_detail sd  WHERE MONTH(sd.`date_time`)=8 GROUP BY MONTH(sd.`date_time`)
+) c
+
+#2.CASE WHEN THEN
+SELECT SUM(CASE WHEN MONTH(sd.`date_time`)=6 THEN sd.`date_sum` END) '6月',
+       SUM(CASE WHEN MONTH(sd.`date_time`)=7 THEN sd.`date_sum` END) '7月',
+       SUM(CASE WHEN MONTH(sd.`date_time`)=8 THEN sd.`date_sum` END) '8月' FROM sale_detail sd
+
+
+
+场景2：学生课程成绩 -- 分组，多行多列
+	name	course	score   ---->	姓名	数学	英语	语文		
+	张三	数学	70		张三	70	80	90
+	张三	英语	80		李四	90	80	70
+	张三	语文	90
+	李四	数学	90
+	李四	英语	80
+	李四	语文	70
+#
+SELECT scs.`name` '姓名',
+	MAX(CASE scs.`course` WHEN '数学' THEN scs.`score` ELSE 0 END) '数学',
+	MAX(CASE scs.`course` WHEN '英语' THEN scs.`score` ELSE 0 END) '英语',
+	MAX(CASE scs.`course` WHEN '语文' THEN scs.`score` ELSE 0 END) '语文'
+FROM student_course_score scs 
+GROUP BY scs.`name`
+
+--------------------------------------------------------------------------------------------
+
+列转行
+场景1：
+	id	user_id		role_id  ---->  id	user_id		role_id
+	1	11		1,2		2	22		2
+	2	22		2,3,4		2	22		3	
+						2	22		4
