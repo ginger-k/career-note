@@ -52,13 +52,13 @@ GROUP BY scs.`name`
 						22		4
 
 #先建序列表，插入数据(1,2,3,4...)
-SELECT b.userId userId
-       ,REPLACE(SUBSTRING(SUBSTRING_INDEX(b.roleId,',',a.id),CHAR_LENGTH(SUBSTRING_INDEX(b.roleId,',',a.id-1))+1),',','') roleId
+SELECT b.`userId` userId
+       ,REPLACE(SUBSTRING(SUBSTRING_INDEX(b.`roleId`,',',a.id),CHAR_LENGTH(SUBSTRING_INDEX(b.`roleId`,',',a.`id`-1))+1),',','') roleId
 FROM tb_sequence a CROSS JOIN (
-    SELECT sur.user_id userId,CONCAT(sur.role_id,',') roleId
-	   ,LENGTH(sur.role_id)-LENGTH(REPLACE(sur.role_id,',',''))+1 size 
+    SELECT sur.`user_id` userId,CONCAT(sur.`role_id`,',') roleId
+	   ,LENGTH(sur.`role_id`)-LENGTH(REPLACE(sur.`role_id`,',',''))+1 size 
     FROM system_user_role sur
-) b ON a.id <= b.size
+) b ON a.`id` <= b.`size`
 
 场景2：学生课程成绩 -- 多列
 	name	math	english	chinese  ---->  name	course	score	
@@ -68,3 +68,21 @@ FROM tb_sequence a CROSS JOIN (
 						李四	math	 90
 						李四	english	 80
 						李四	chinese	 70
+#使用UNION
+SELECT scs.`name` student_name,'math' course,scs.`math` score FROM student_course_score scs
+UNION
+SELECT scs.`name` student_name,'english' course,scs.`english` score FROM student_course_score scs
+UNION
+SELECT scs.`name` student_name,'chinese' course,scs.`chinese` score FROM student_course_score scs
+
+#先建立序列号表
+SELECT a.`name` student_name
+,CASE WHEN b.id = 1 THEN 'math'
+     WHEN b.id = 2 THEN 'english'
+     WHEN b.id = 3 THEN 'chinese' END course
+,COALESCE(CASE WHEN b.`id` = 1 THEN a.`math` END
+,CASE WHEN b.`id` = 2 THEN a.`english` END
+,CASE WHEN b.`id` = 3 THEN a.`chinese` END) score
+FROM student_course_score a 
+CROSS JOIN tb_sequence b WHERE b.`id` <= 3
+ORDER BY a.`name`,b.`id`
