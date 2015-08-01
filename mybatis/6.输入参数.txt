@@ -1,51 +1,71 @@
-ÊäÈë²ÎÊıÀàĞÍ: »ù±¾ÀàĞÍ,pojo,HashMap
-	»ù±¾ÀàĞÍ,Í¨¹ıÕ¼Î»·û(#¿ÉÒÔÊÇ#{1}»ò#{param1},$Ö»ÄÜÓÃ${param1})»òÕßÓÃ×¢½âÖ¸¶¨Ãû³ÆÈ¡Öµ
-	pojo,Í¨¹ı¶ÔÏóµÄÊôĞÔ(get·½·¨)À´È¡Öµ
-	HashMap,Í¨¹ıÆäkeyµÄÖµÀ´Æ¥ÅäÈ¡Öµ
+è¾“å…¥å‚æ•°ç±»å‹: åŸºæœ¬ç±»å‹,pojo,HashMap
+	åŸºæœ¬ç±»å‹,é€šè¿‡å ä½ç¬¦(#å¯ä»¥æ˜¯#{1}æˆ–#{param1},$åªèƒ½ç”¨${param1})æˆ–è€…ç”¨æ³¨è§£æŒ‡å®šåç§°å–å€¼
+	pojo,é€šè¿‡å¯¹è±¡çš„å±æ€§(getæ–¹æ³•)æ¥å–å€¼
+	HashMap,é€šè¿‡å…¶keyçš„å€¼æ¥åŒ¹é…å–å€¼
 
-Á½ÖÖ·½Ê½²Ù×÷Êı¾İ¿â:
-	1.sqlSessionÖ±½Ó²Ù×÷,ÊäÈë²ÎÊıÊÇ»ù±¾ÀàĞÍ,pojo»òHashMap,½öÓĞÒ»¸ö(Object)
-	2.sqlSession»ñÈ¡Mapper,Í¨¹ıMapper¶¨ÒåµÄ·½·¨È¥²Ù×÷,ÊäÈë²ÎÊıÊÇ»ù±¾ÀàĞÍ,pojo»òHashMap,¿ÉÒÔÓĞ¶à¸ö(×Ô¶¨Òå·½·¨)
+ä¸¤ç§æ–¹å¼æ“ä½œæ•°æ®åº“:
+	1.sqlSessionç›´æ¥æ“ä½œ,è¾“å…¥å‚æ•°æ˜¯åŸºæœ¬ç±»å‹,pojoæˆ–HashMap,ä»…æœ‰ä¸€ä¸ª(Object)
+	2.sqlSessionè·å–Mapper,é€šè¿‡Mapperå®šä¹‰çš„æ–¹æ³•å»æ“ä½œ,è¾“å…¥å‚æ•°æ˜¯åŸºæœ¬ç±»å‹,pojoæˆ–HashMap,å¯ä»¥æœ‰å¤šä¸ª(è‡ªå®šä¹‰æ–¹æ³•)
 
-# -- Õ¼Î»·û,»á×Ô¶¯Ê¶±ğ²ÎÊıÀàĞÍ,²»ĞèÒªÅäÖÃparameterType
-     µ¥²ÎÊı: »ù±¾ÀàĞÍ×Ô¶¯Æ¥Åä,¸úÃû×ÖÎŞ¹Ø;pojoÒÔget·½Ê½,HashMap¸ù¾İÆäkeyµÄÖµÀ´È¡
-     ¶à²ÎÊı: »ù±¾ÀàĞÍÍ¨¹ıÕ¼Î»·û${1}»ò${param1},»òÕßÓÃ×¢½âµÄ·½Ê½
-	     »òÕß½«»ù±¾ÀàĞÍ·â×°µ½pojoºÍHashMapÖĞ.
-	     1).ÔÚsqlÓï¾äÖĞÓÃ0,1»òparam1,param2Õ¼Î» 
+# -- å ä½ç¬¦,ä¼šè‡ªåŠ¨è¯†åˆ«å‚æ•°ç±»å‹,ä¸éœ€è¦é…ç½®parameterType
+     å•å‚æ•°: åŸºæœ¬ç±»å‹è‡ªåŠ¨åŒ¹é…,è·Ÿåå­—æ— å…³;pojoä»¥getæ–¹å¼,HashMapæ ¹æ®å…¶keyçš„å€¼æ¥å–
+     å¤šå‚æ•°: åŸºæœ¬ç±»å‹é€šè¿‡å ä½ç¬¦${1}æˆ–${param1},æˆ–è€…ç”¨æ³¨è§£çš„æ–¹å¼
+	     æˆ–è€…å°†åŸºæœ¬ç±»å‹å°è£…åˆ°pojoå’ŒHashMapä¸­.
+	     1).åœ¨sqlè¯­å¥ä¸­ç”¨0,1æˆ–param1,param2å ä½ 
 			SELECT * FROM user WHERE name = #{0} and password= #{1}
-		     »ò SELECT * FROM user WHERE name = #{param1} and password= #{param2}
+		     æˆ– SELECT * FROM user WHERE name = #{param1} and password= #{param2}
 			public interface UserMapper {
 				public User queryUserByNameAndPassword(String name,String password);
 			}
 
-	     2).ÔÚMapper·½·¨µÄ²ÎÊıÉÏ¼Ó×¢½âÀ´ºÍÓï¾ä#Õ¼Î»·ûµÄÃû³Æ½øĞĞÓ³Éä
+	     2).åœ¨Mapperæ–¹æ³•çš„å‚æ•°ä¸ŠåŠ æ³¨è§£æ¥å’Œè¯­å¥#å ä½ç¬¦çš„åç§°è¿›è¡Œæ˜ å°„
 			SELECT * FROM user WHERE name = #{uname} and password= #{upassword}
 			public interface UserMapper {
 				public User queryUserByNameAndPassword(@Param("uname")String name,@Param("upassword")String password);
 			}
 
-	     3).½«²ÎÊı·â×°µ½pojo»òHashMapÖĞ´«ÈëMapperµÄ·½·¨
+	     3).å°†å‚æ•°å°è£…åˆ°pojoæˆ–HashMapä¸­ä¼ å…¥Mapperçš„æ–¹æ³•
 			<mapper namespace="cn.itcast.dao.UserMapper" >
 			    <select id="queryUserByUserName" resultType="cn.itcast.domain.User">
 				SELECT * FROM user WHERE name = #{uname} and password= #{upassword}
 			</mapper>
 
 			public interface UserMapper {
-				public User queryUserByNameAndPassword(PojoUser puser); //pojoµÄÊôĞÔ(getUname·½·¨)ºÍ#Õ¼Î»·ûµÄÃû³ÆÒ»ÖÂ
-				public User queryUserByNameAndPassword(HashMap<String,Object> map); //HashMapµÄkeyºÍ#Õ¼Î»·ûµÄÃû³ÆÒ»ÖÂ
+				public User queryUserByNameAndPassword(PojoUser puser); //pojoçš„å±æ€§(getUnameæ–¹æ³•)å’Œ#å ä½ç¬¦çš„åç§°ä¸€è‡´
+				public User queryUserByNameAndPassword(HashMap<String,Object> map); //HashMapçš„keyå’Œ#å ä½ç¬¦çš„åç§°ä¸€è‡´
 			}
 
 			User user=sqlSession.selectOne("cn.itcast.dao.UserMapper.queryUserByNameAndPassword", pojo);
-			»ò User user=sqlSession.selectOne("cn.itcast.dao.UserMapper.queryUserByNameAndPassword", map);
+			æˆ– User user=sqlSession.selectOne("cn.itcast.dao.UserMapper.queryUserByNameAndPassword", map);
 
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			userMapper.queryUserByNameAndPassword(pojo);
-			»ò userMapper.queryUserByNameAndPassword(map);
+			æˆ– userMapper.queryUserByNameAndPassword(map);
+
+-------------------------------------------------------------------------------
+
+è¾“å…¥å‚æ•°æ€»ç»“ï¼šognlè¡¨è¾¾å¼
+	1.Stringä¸åŸºæœ¬ç±»å‹ï¼š_parameter
+	2.pojoï¼šå±æ€§å
+	3.Mapï¼š_parameter.key(Map<String,String) -- _parameterå¯ä»¥çœç•¥
+	       key.å±æ€§å(Map<String,User>)
+	4.æ•°ç»„ï¼šarray[ç´¢å¼•](String[])
+		array[ç´¢å¼•].å±æ€§å(User[])
+
+	5.Listï¼šlist[ç´¢å¼•](List<String>)
+		     list[ç´¢å¼•].å±æ€§å(List<User>)
 
 ---------------------------------------------------------------------------------------------------------------------------------------		
 	     
-$ -- ÓÃÓÚSQLÆ´½Ó,×Ô¼º×ö²âÊÔ²âµÃÒ²²»ĞèÒªÅäÖÃparameterType
-     µ¥²ÎÊı: »ù±¾ÀàĞÍ²»»á×Ô¶¯Æ¥Åä,Í¨¹ı²ÎÊıÉÏ¼Ó×¢½âµÄ·½Ê½Ö¸¶¨${}µÄÃû×Ö,»ò²»¼Ó×¢½â,Ö±½ÓÓÃ${value}È¡Öµ
-	     pojoÒÔget·½Ê½,HashMap¸ù¾İÆäkeyµÄÖµÀ´È¡.
-     ¶à²ÎÊı: »ù±¾²ÎÊıÍ¨¹ıÕ¼Î»·û${1}²»ĞĞ,ÒªÓÃ${param1},»òÕßÓÃ×¢½âµÄ·½Ê½
-	     »òÕß½«»ù±¾ÀàĞÍ·â×°µ½pojoºÍHashMapÖĞ.
+#{} å®ç°çš„æ˜¯sqlè¯­å¥çš„é¢„å¤„ç†å‚æ•°ï¼Œæ‰§è¡Œçš„sqlä¸­ç”¨?å·ä»£æ›¿ï¼Œå¯ä»¥é˜²æ­¢sqlæ³¨å…¥.
+    ä½¿ç”¨æ—¶ä¸éœ€è¦å…³æ³¨è¾“å…¥å‚æ•°çš„æ•°æ®ç±»å‹ï¼ŒMybatisè‡ªåŠ¨å®ç°æ•°æ®ç±»å‹çš„è½¬æ¢.
+    ä½¿ç”¨#{}ä¼ å‚æ—¶ï¼Œ#{}åªæ˜¯åšå ä½ç¬¦ï¼Œä¸å‚æ•°åæ— å…³ã€‚Â 
+
+${} å®ç°æ˜¯sqlè¯­å¥çš„ç›´æ¥æ‹¼æ¥ï¼Œä¸èƒ½é˜²æ­¢sqlæ³¨å…¥.
+    å¯¹è¾“å…¥å‚æ•°ä¸åšæ•°æ®ç±»å‹è½¬æ¢ï¼Œéœ€è¦æ‰‹åŠ¨åˆ¤æ–­æ•°æ®ç±»å‹(å¦‚æœæ˜¯å­—ç¬¦ä¸²,å°±è¦åŠ '',å¦‚æœæ˜¯æ•°å­—,å°±ä¸éœ€è¦åŠ '')
+    ä½¿ç”¨${}ä¼ å‚æ—¶ï¼Œæ˜¯é€šè¿‡å‚æ•°åè·å–å‚æ•°çš„ï¼Œå¦‚æœæ²¡æœ‰æŒ‡å®šå‚æ•°ååˆ™å¯ä»¥é€šè¿‡valueè·å–ï¼Œå¦‚æœæŒ‡å®šåˆ™éœ€è¦æŒ‰ç…§åç§°è·å–ã€‚
+    order by ä½¿ç”¨çš„æ¯”è¾ƒå¤š
+
+æ€»ç»“ï¼š
+#{} å ä½ç¬¦ï¼Œç”¨äºå‚æ•°ä¼ é€’ã€‚
+${}ç”¨äºSQLæ‹¼æ¥ã€‚

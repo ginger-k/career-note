@@ -39,3 +39,6 @@ ResultSetHandler(FastResultSetHandler)
 
 TypeHandler
 决断TypeHandler使用的是结果参数的属性类型
+
+RowBounds
+处理逻辑分页

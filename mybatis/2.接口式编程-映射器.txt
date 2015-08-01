@@ -3,6 +3,14 @@ Mybatis可以通过配置,以动态代理的方式生成DAO接口的实现,这个DAO接口称为映射器(Mapp
 映射器是创建绑定映射语句的接口,其实例可以从 SqlSession 中获得,最佳范围是方法范围。
 也就是说,它们应该在使用它们的方法中被请求,然后就抛弃掉。
 
+原理：MapperProxy<T> implements InvocationHandler -- T为接口
+      sqlSession.getMapper() == Proxy.newProxyInstance()
+		sqlSession.getMapper()会去调MapperProxyFactory.newInstance(SqlSession)
+		里面会去调Proxy.newProxyInstance(类加载器, 接口, MapperProxy<T>)，产生T的实现类
+      sqlSession.selectList(?,?) == MapperProxy.invoke()
+		MapperProxy.invoke()会去调MapperMethod的execute()，
+		里面会去调SqlSession的selectList(?,?)
+
 xml方式:
 	1.定义映射接口
 		public interface UserMapper {
