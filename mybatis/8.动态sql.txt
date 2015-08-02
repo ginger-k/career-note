@@ -26,12 +26,22 @@ sql片段: 使用<sql id=”” />标签定义SQL片段，在需要的地方通过<include refid=""/>
 	<foreach collection="" item="" index="" close="" open="" separator=""></foreach>
 	<bind/>
 
+---------------------------------------------------------------------------------------------------
+
 标签示例
 	<!-- 批量删除 -->
 	<delete id="deleteBatch" parameterType="java.util.List">
 	    delete from tb_user where id in
 		<foreach collection="list" item="item" open="(" separator="," close=")">
 		    #{item}	
+		</foreach>
+	</delete>
+
+	<!-- 批量添加 -->
+	<insert id="insertBatch" parameterType="java.util.List">
+	    insert into tb_user(username,password) values
+		<foreach collection="list" item="item" separator=",">
+		    (#{item.usernmae},#{item.password})	
 		</foreach>
 	</delete>
 

@@ -31,14 +31,20 @@ Executor对象的主要功能是调用StatementHandler访问数据库，并将查询结果存入缓存中（
 StatementHandler(PreparedStatementHandler)
 StatementHandler是真正访问数据库的地方，并调用ResultSetHandler处理查询结果。
 
- 
+ParameterHandlder
+处理预编译的sql语句中？和参数的对应关系等
 
 ResultSetHandler(FastResultSetHandler)
 处理查询结果。
-	
 
 TypeHandler
 决断TypeHandler使用的是结果参数的属性类型
+
+BoundSql
+和sql语句绑定，通过String getSql();方法拿到绑定的sql语句
+
+MappedStatement
+代码mapper.xml中的一句sql语句，id属性为mapper标签的"namespace.id"
 
 RowBounds
 处理逻辑分页

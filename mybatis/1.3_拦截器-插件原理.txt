@@ -2,19 +2,26 @@ MybatisÖ§³Ö¶ÔExecutor¡¢StatementHandler¡¢PameterHandlerºÍResultSetHandler½øĞĞÀ¹½
 
 InterceptorChainÀï±£´æÁËËùÓĞµÄÀ¹½ØÆ÷£¬ËüÔÚmybatis³õÊ¼»¯µÄÊ±ºò´´½¨¡£
 
-Ã¿¸öInterceptor¶¼ÓĞ3¸ö·½·¨£º
-	1)Object intercept(Invocation invocation)ÊÇÊµÏÖÀ¹½ØÂß¼­µÄµØ·½£¬
-	  ÄÚ²¿ÒªÍ¨¹ıinvocation.proceed()ÏÔÊ½µØÍÆ½øÔğÈÎÁ´Ç°½ø£¬Ò²¾ÍÊÇµ÷ÓÃÏÂÒ»¸öÀ¹½ØÆ÷À¹½ØÄ¿±ê·½·¨¡£
+InterceptorµÄÔ­Àí£º
+	1)void setProperties(Properties properties)ÓÃÓÚÉèÖÃ¶îÍâµÄ²ÎÊı£¬²ÎÊıÅäÖÃÔÚÀ¹½ØÆ÷µÄProperties½ÚµãÀï¡£
+	  ¿ÉÒÔÔÚ×Ô¶¨ÒåµÄÀ¹½ØÆ÷ÖĞÌí¼ÓÊôĞÔ£¬ÔÚ¸Ã·½·¨ÖĞ³õÊ¼»¯ÕâĞ©ÊôĞÔ(´ÓÅäÖÃÎÄ¼şÖĞ¼ÓÔØ)£¬ÏÂÃæµÄ·½·¨¾Í¿ÉÒÔÓÃÕâĞ©ÊôĞÔÁË¡£
 
-	2)Object plugin(Object target) ¾ÍÊÇÓÃµ±Ç°Õâ¸öÀ¹½ØÆ÷Éú³É¶ÔÄ¿±êtargetµÄ´úÀí£¬
+	2)Object plugin(Object target) Éú³É¶ÔÀ¹½ØÄ¿±ê(Executor,StatementHandler,PameterHandler,ResultSetHandler)µÄ´úÀí¶ÔÏó£¬
 	  Êµ¼ÊÊÇÍ¨¹ıPlugin.wrap(target,this) À´Íê³ÉµÄ£¬°ÑÄ¿±êtargetºÍÀ¹½ØÆ÷this´«¸øÁË°ü×°º¯Êı¡£
+	  Í¨¹ı»ñÈ¡ @Intercepts ×¢½âÀ´ÅĞ¶ÏÒªÀ¹½ØµÄÀàĞÍ(Executor,StatementHandler,PameterHandler,ResultSetHandler)£¬ºÍ¸ÃÀàĞÍµÄ·½·¨¡£
 
-	3)setProperties(Properties properties)ÓÃÓÚÉèÖÃ¶îÍâµÄ²ÎÊı£¬²ÎÊıÅäÖÃÔÚÀ¹½ØÆ÷µÄProperties½ÚµãÀï¡£
+	3)Object intercept(Invocation invocation)ÊÇÊµÏÖÀ¹½ØÂß¼­µÄµØ·½£¬ĞèÒª¶ÔÀ¹½ØµÄ¶ÔÏóµÄ·½·¨×öÏŞÖÆ£¬
+	  ¿ÉÒÔÍ¨¹ıÀ¹½Ø¶ÔÏóµÄ MappedStatement ÊôĞÔ »òÕâĞ©·½·¨µÄ MappedStatement ²ÎÊıµÄid£¬À´¶Ô½Ó¿Ú(±ÈÈçUserMapper)ºÍ½Ó¿ÚµÄ·½·¨(±ÈÈçList<User> getAll();)×öÏŞÖÆ
+	  Ò²¿ÉÒÔÍ¨¹ı ThreadLocal ²éÕÒÄ³Ğ©²ÎÊı£¬±ÈÈçPageHelper¶Ô»á²éÕÒPage£¬ÓĞPage¾ÍÀ¹½Ø£¬·ñÔò·ÅĞĞ
+	  ²¢ÇÒ£¬ÄÚ²¿ÒªÍ¨¹ıinvocation.proceed()ÏÔÊ½µØÍÆ½øÔğÈÎÁ´Ç°½ø£¬Ò²¾ÍÊÇµ÷ÓÃÏÂÒ»¸öÀ¹½ØÆ÷À¹½ØÄ¿±ê·½·¨¡£	
 
 	×¢½âÀïÃèÊöµÄÊÇÖ¸¶¨À¹½Ø·½·¨µÄÇ©Ãû  [type,method,args] £¨¼´¶ÔÄÄÖÖ¶ÔÏóµÄÄÄÖÖ·½·¨½øĞĞÀ¹½Ø£©£¬ËüÔÚÀ¹½ØÇ°ÓÃÓÚ¾ö¶Ï
+	@Intercepts(@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}))
+
+--------------------------------------------------------------------------------------------------------
 
 Plugin.wrap·½·¨£¬Ã¿¸öÀ¹½ØÆ÷µÄplugin·½·¨ÊÇÍ¨¹ıµ÷ÓÃPlugin.wrap·½·¨À´ÊµÏÖµÄ
-	public staticObject wrap(Object target, Interceptor interceptor) {
+	public static Object wrap(Object target, Interceptor interceptor) {
 		//´ÓÀ¹½ØÆ÷µÄ×¢½âÖĞ»ñÈ¡À¹½ØµÄÀàÃûºÍ·½·¨ĞÅÏ¢
 		Map<Class<?>, Set<Method>> signatureMap =getSignatureMap(interceptor);
 		Class<?> type = target.getClass();
@@ -40,15 +47,18 @@ PluginÊµÏÖÁËInvocationHandler£¬ÔÚÆäinvoke·½·¨ÖĞ£¬Èç¹û·½·¨Ç©ÃûºÍÀ¹½ØÖĞµÄÇ©ÃûÒ»ÖÂ£
 		    throw ExceptionUtil.unwrapThrowable(e);
 		}
 	} 
-	
-×Ô¼º±àĞ´µÄInterceptorµÄintercept·½·¨
-	public Object intercept(Invocation invocation) throws Throwable {
 
-		//Íê³É´úÀíÀà±¾ÉíµÄÂß¼­
-		...
-		//Í¨¹ıinvocation.proceed()·½·¨Íê³Éµ÷ÓÃÁ´µÄÍÆ½ø
-		return invocation.proceed();
-	} 
+--------------------------------------------------------------------------------------	
+
+×Ô¼º±àĞ´µÄInterceptor
+	1.ÊµÏÖInterceptor£¬Ìí¼Ó @Intercepts ×¢½â£¬ÊµÏÖ·½·¨
+	2.config.xmlÖĞÌí¼Ó<plugins>ÅäÖÃ
+		<plugins>
+		    <plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql"/>
+			<property name="rowBoundsWithCount" value="true"/>
+		    </plugin>
+		</plugins>
 
 
 ×Ü½á£º
