@@ -79,7 +79,7 @@ session：在访问一个web应用下的资源时，服务器可以为每一个用户的浏览器创建一个其独
 	  invalidate();//立马销毁某个session对象
 
 浏览器禁用cookie，怎么样去找到session？
-	通过url重新的方式，在url地址后拼接jsessionid
+	通过url重写的方式，在url地址后拼接jsessionid
 		http://localhost:8080/my_day12/session2;jsessionid=saghfuio2h13rh3
 		response.encodeURL("/my_day12/session2");
 	因为一个网站下连接太多，所有这项技术没有实际意义，一般网站会提示用户不要禁用cookie。

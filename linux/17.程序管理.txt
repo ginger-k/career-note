@@ -1,0 +1,14 @@
+
+
+ps：将某个时间点的程序运行情况截取下来
+	ps aux -- 系统所有程序
+top：持续侦测程序运行的状态
+	top -d 5  --  每5秒更新一次top
+	top -b -n 2 > /tmp/top.txt  --  将top的信息进行2次，结果输出到文件中
+	top -d 2 -p `echo $$`  -- 持续观察bash进程
+pstree：进程树
+
+free：观察内存使用情况
+
+netstat：追踪网络或插槽文件、
+	netstat -anp | grep '3306'
