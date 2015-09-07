@@ -1,0 +1,26 @@
+一个变量可以有多个数据类型，下面mouse既是string，又是hash
+	(root)
+	 |
+	 +- mouse = "Yerri"
+		 |
+		 +- age = 12
+		 |
+		 +- color = "brown"
+		 
+------------------------------------------------------------------------
+
+freemarker支持的类型：
+	Scalars:
+		String	"150"不能计算，也不能比较
+		Number
+		Boolean	在if标签或方法中使用
+		Date-like (date, time, or date-time)
+	Containers:
+		Hash
+		Sequence 元素的类型可以不一样
+		Collection 不是hash也不是sequence
+	Subroutines(子程序):
+		Methods and functions
+		User-defined directives
+	Miscellaneous/seldom used(少用):
+		Node

@@ -1,0 +1,55 @@
+自定义指令：使用macro指令，可以包含interpolation和FTL tags
+	带参数
+		<#macro greet person color>
+			<font size="+2" color="${color}">Hello ${person}!</font>
+		</#macro>
+		<@greet person="Fred" color="black"/>
+	
+	嵌入
+		<#macro border>
+			<table border=4 cellspacing=0 cellpadding=4><tr><td>
+				<#nested>
+			</tr></td></table>
+		</#macro>
+		<@border>The bordered text</@border> 
+		其中的<#nested>会被标签中的内容代替，可以是别人定义的指令
+	
+		<#macro repeat count>
+			  <#local y = "test">
+			  <#list 1..count as x>
+					${y} ${count}/${x}: <#nested>
+			  </#list>
+		</#macro>
+		<@repeat count=3>${y!"?"} ${x!"?"} ${count!"?"}</@repeat>
+		macro中的变量在嵌套内容中是不可见的
+				test 3/1: ? ? ?
+				test 3/2: ? ? ?
+				test 3/3: ? ? ?
+		
+	循环变量
+		<#macro repeat count>
+			<#list 1..count as x>
+				<#nested x, x/2, x==count>
+			</#list>
+		</#macro>
+		<@repeat count=4 ; c, halfc, last>
+			${c}. ${halfc}<#if last> Last!</#if>
+		</@repeat>
+				1. 0.5
+				2. 1
+				3. 1.5
+				4. 2 Last!
+
+---------------------------------------------------------------------------------------------------
+
+模板中定义变量
+	plain variables
+	local variables
+	loop variables
+	global variables
+
+命名空间
+	<#import "/lib/my_test.ftl" as my>
+
+处理空格
+	<#compress>...</#compress>

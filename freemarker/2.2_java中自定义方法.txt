@@ -1,0 +1,43 @@
+TemplateMethodModel extends TemplateModel
+TemplateMethodModelEx extends TemplateMethodModel
+
+自定义方法：
+	1.编写方法类
+		public class IndexOfMethod implements TemplateMethodModelEx {
+			/*
+			 * ${indexOf("met", "something")}  --  2
+			 * 注意：list里获取的都是freemarker的数据类型，要先转换为java中的类型
+			 */
+			@Override
+			public Object exec(@SuppressWarnings("rawtypes") List args) throws TemplateModelException {
+				if (args.size() != 2) {
+					throw new TemplateModelException("参数个数错误！");
+				}
+				int index = (((SimpleScalar)args.get(1)).toString()).indexOf(((SimpleScalar)args.get(0)).toString());
+				return new SimpleNumber(index);
+			}
+		}
+		
+	2.放入root
+		//创建Freemarker配置实例
+		Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
+		cfg.setDirectoryForTemplateLoading(new File("templates"));
+		cfg.setDefaultEncoding("UTF-8");
+        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+		
+		//创建数据模型
+		Map<String, Object> root = new HashMap<String, Object>();
+		root.put("indexOf", new IndexOfMethod());
+		
+		//加载模板文件
+		Template t1 = cfg.getTemplate("method.ftl");
+		
+		//显示生成的数据,将合并后的数据打印到控制台
+		Writer out = new OutputStreamWriter(System.out);
+		t1.process(root, out);
+		out.flush();
+		
+	3.method.ftl中使用
+		<#assign x = "something">
+		${indexOf("met", x)}
+		${indexOf("foo", x)}

@@ -1,0 +1,68 @@
+Template + data-model = output
+模板 + 数据模型 = 输出
+
+---------------------------------------------------------------------------------------
+
+数据模型是一颗树，hash结构
+数据结构：
+	hash	通过name.key或name["key"]访问
+	scalar	String，Number，Date-like，Boolean
+			直接通过name访问
+	sequence	通过name[index]访问，从0开始
+	method
+	directive
+	
+---------------------------------------------------------------------------------------
+	
+标签(指令)：#开头(freemarker定义)，@开头(定义)
+注释：<#!-- comments -->
+
+基础指令：if，list，include
+	<#if user == "BigJoe">哈哈哈</#if>
+	<#if gender>男<#else>女</#if>
+	<#if price <= 10>便宜<#elseif price <= 20>还可以<#else>贵</#if>
+	
+	<ul>	<#-- 如果fruits的size为0，ul依旧存在 -->
+		<#list fruits as fruit>
+			<li>${fruit}
+		</#list>
+	</ul>
+	<#list fruits>	<#-- 解决上述问题 -->
+		<ul>
+			<#items as fruit>
+				<li>${fruit}
+			</#items>
+		</ul>
+	</#list>
+	<#list fruits as fruit>${fruit}<#sep>, <#else>没有</#list>	<#-- sep需要注意版本 -->
+	${fruits?join(", ", "没有")}	<#-- 如果每个fruit不是string，就不要这么干了 -->
+	
+	<#include "/copyright_footer.html">
+
+---------------------------------------------------------------------------------------
+	
+插值(built-ins)：类似于java中的方法，使用 ? 操作符
+	user?html	html风格，&→&amp
+	user?upper_case		John→JOHN
+	user?cap_first		john→John
+	user?length		字符数
+	animals?size	 集合中元素个数
+	<#list animals as animal> 在这之间 </#list>
+		animal?index	从0开始
+		animal?counter	从1开始
+		animal?item_parity 	"odd"或"even"，用于隔行变色 <
+		td class="${animal?item_parity}Row">
+		animal?item_cycle('odd', 'even') 	类似上述用法	
+		animal.sex?string("公", "母")
+	${fruits?join(", ", "没有")}  列表元素分隔
+	user?starts_with("J") 返回true或false
+	user?starts_with("J")?string("是", "否")	链式调用插值
+	
+---------------------------------------------------------------------------------------
+	
+处理空值：变量不存在，变量为null
+	使用!设置默认值，${user!"visitor"}
+	<#if user??><h1>Welcome ${user}!</h1></#if>	如果为null，会跳过标签
+	
+	
+	
