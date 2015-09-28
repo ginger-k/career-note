@@ -1,0 +1,21 @@
+windows:
+	1.下载elasticsearch，解压，运行\bin\elasticsearch.bat
+	  进入 http://localhost:9200/
+
+	2.安装head插件
+	  \bin>plugin -install mobz/elasticsearch-head
+	  进入 http://localhost:9200/_plugin/head/
+	  
+	3.安装bigdesk插件
+	  \bin>plugin -install lukas-vlcek/bigdesk
+	  进入 http://localhost:9200/_plugin/bigdesk/ 
+	  
+	4.安装marvel插件，marvel自带了sense插件
+	  \bin>plugin -i elasticsearch/marvel/latest
+	  进入 http://localhost:9200/_plugin/marvel/
+		   http://localhost:9200/_plugin/marvel/sense/
+	  
+	5.安装Sense，也可以上google应用
+	
+	6.安装river
+	  \bin>plugin --install jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.5.0.5/elasticsearch-river-jdbc-1.5.0.5-plugin.zip

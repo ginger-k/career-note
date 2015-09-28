@@ -1,0 +1,70 @@
+通常可以认为对象和文档是等价相等的，但是elasticsearch中的文档特指最顶层结构。
+
+文档元数据：
+	_index	文档存储的地方		"数据库"
+	_type 	文档代表的对象的类	"表"
+	_id		文档的唯一标识
+	_version
+	_source
+	
+每个类型(type)都有自己的映射(mapping)或者结构定义，就像传统数据库表中的列一样。
+
+
+索引一个文档
+	PUT /website/blog/123
+	{
+	  "title": "My first blog entry",
+	  "text":  "Just trying this out...",
+	  "date":  "2014/01/01"
+	}
+
+
+检索文档
+	GET /website/blog/123?pretty
+
+检索文档的一部分
+	GET /website/blog/123?_source=title,text
+	
+只想得到_source字段而不要其他的元数据
+	GET /website/blog/123/_source
+
+更新整个文档
+	PUT /website/blog/123
+	{
+	  "title": "My first blog entry",
+	  "text":  "I am starting to get the hang of this...",
+	  "date":  "2014/01/02"
+	}
+	
+创建一个新文档，已存在会失败
+	PUT /website/blog/123?op_type=create
+	{ ... }
+	PUT /website/blog/123/_create
+	{ ... }
+	
+删除文档
+	DELETE /website/blog/123
+	
+检索多个文档
+	GET /website/blog/_mget
+	{
+	   "ids" : [ "2", "1" ]
+	}
+	
+批量操作
+	{ action: { metadata }}\n
+	{ request body        }\n
+action/metadata
+	create	当文档不存在时创建之
+	index	创建新文档或替换已有文
+	update	局部更新文档
+	delete	删除一个文档
+		POST /_bulk
+		{ "delete": { "_index": "website", "_type": "blog", "_id": "123" }} 
+		{ "create": { "_index": "website", "_type": "blog", "_id": "123" }}
+		{ "title":    "My first blog post" }
+		{ "index":  { "_index": "website", "_type": "blog" }}
+		{ "title":    "My second blog post" }
+		{ "update": { "_index": "website", "_type": "blog", "_id": "123", "_retry_on_conflict" : 3} }
+		{ "doc" : {"title" : "My updated blog post"} } 
+bulk请求不是原子操作——它们不能实现事
