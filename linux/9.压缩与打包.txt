@@ -11,7 +11,7 @@
 	*.tar.gz  -- tar打包，并用gzip压缩
 	*.tat.bz2 -- tar打包，并用bzip2压缩
 
-tar常用命令：用bz2压缩的话，将g换为j
-	压缩：tar -gcv -f filename.tar.gz 要被压缩的文件或目录的名称
-	查询：tar -gtv -f filename.tar.gz
-	解压缩：tar -gxv -f filename.tar.gz -C 欲解压缩的目录
+tar常用命令：用bz2压缩的话，将z换为j
+	压缩：tar -zcv -f filename.tar.gz 要被压缩的文件或目录的名称
+	查询：tar -ztv -f filename.tar.gz
+	解压缩：tar -zxv -f filename.tar.gz -C 欲解压缩的目录
