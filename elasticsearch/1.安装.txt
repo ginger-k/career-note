@@ -18,4 +18,5 @@ windows:
 	5.安装Sense，也可以上google应用
 	
 	6.安装river
+	  将mysql或oracle的jdbc驱动包拷到lib目录下
 	  \bin>plugin --install jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.5.0.5/elasticsearch-river-jdbc-1.5.0.5-plugin.zip
