@@ -1,11 +1,11 @@
-ÔÚElasticsearchÖÐ´æ´¢Êý¾ÝµÄÐÐÎª¾Í½Ð×öË÷Òý(indexing)£¬
-ÎÄµµ¹éÊôÓÚÒ»ÖÖÀàÐÍ(type),¶øÕâÐ©ÀàÐÍ´æÔÚÓÚË÷Òý(index)ÖÐ
+åœ¨Elasticsearchä¸­å­˜å‚¨æ•°æ®çš„è¡Œä¸ºå°±å«åšç´¢å¼•(indexing)ï¼Œ
+æ–‡æ¡£å½’å±žäºŽä¸€ç§ç±»åž‹(type),è€Œè¿™äº›ç±»åž‹å­˜åœ¨äºŽç´¢å¼•(index)ä¸­
 
 Relational DB -> Databases -> Tables -> Rows -> Columns
 Elasticsearch -> Indices   -> Types  -> Documents -> Fields
 
 
-Ìí¼Ó£º
+æ·»åŠ ï¼š
 	PUT /megacorp/employee/1
 	{
 		"first_name" : "John",
@@ -16,3 +16,4 @@ Elasticsearch -> Indices   -> Types  -> Documents -> Fields
 	}
 	
 
+åˆ é™¤ï¼šDELETE /index/type/id
