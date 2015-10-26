@@ -1,22 +1,29 @@
 windows:
-	1.ÏÂÔØelasticsearch£¬½âÑ¹£¬ÔËĞĞ\bin\elasticsearch.bat
-	  ½øÈë http://localhost:9200/
+	1.ä¸‹è½½elasticsearchï¼Œè§£å‹ï¼Œè¿è¡Œ\bin\elasticsearch.bat
+	  è¿›å…¥ http://localhost:9200/
 
-	2.°²×°head²å¼ş
+	2.å®‰è£…headæ’ä»¶
 	  \bin>plugin -install mobz/elasticsearch-head
-	  ½øÈë http://localhost:9200/_plugin/head/
+	  è¿›å…¥ http://localhost:9200/_plugin/head/
 	  
-	3.°²×°bigdesk²å¼ş
+	3.å®‰è£…bigdeskæ’ä»¶
 	  \bin>plugin -install lukas-vlcek/bigdesk
-	  ½øÈë http://localhost:9200/_plugin/bigdesk/ 
+	  è¿›å…¥ http://localhost:9200/_plugin/bigdesk/ 
 	  
-	4.°²×°marvel²å¼ş£¬marvel×Ô´øÁËsense²å¼ş
+	4.å®‰è£…marvelæ’ä»¶ï¼Œmarvelè‡ªå¸¦äº†senseæ’ä»¶
 	  \bin>plugin -i elasticsearch/marvel/latest
-	  ½øÈë http://localhost:9200/_plugin/marvel/
+	  è¿›å…¥ http://localhost:9200/_plugin/marvel/
 		   http://localhost:9200/_plugin/marvel/sense/
 	  
-	5.°²×°Sense£¬Ò²¿ÉÒÔÉÏgoogleÓ¦ÓÃ
+	5.å®‰è£…Senseï¼Œä¹Ÿå¯ä»¥ä¸Šgoogleåº”ç”¨
 	
-	6.°²×°river
-	  ½«mysql»òoracleµÄjdbcÇı¶¯°ü¿½µ½libÄ¿Â¼ÏÂ
+	6.å®‰è£…river
+	  å°†mysqlæˆ–oracleçš„jdbcé©±åŠ¨åŒ…æ‹·åˆ°libç›®å½•ä¸‹
 	  \bin>plugin --install jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.5.0.5/elasticsearch-river-jdbc-1.5.0.5-plugin.zip
+	  
+	  
+linuxï¼š
+	1.å¯åŠ¨ï¼Œå…³é—­
+	  è¿›å…¥ bin/service
+	  æ‰§è¡Œ ./elasticsearch stop	./elasticsearch start
+	
