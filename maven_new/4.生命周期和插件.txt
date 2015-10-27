@@ -1,19 +1,47 @@
-ÍêÕûµÄÏîÄ¿¹¹½¨¹ı³Ì°üÀ¨£º
-	ÇåÀí£¬±àÒë£¬²âÊÔ£¬´ò°ü£¬¼¯³É²âÊÔ£¬ÑéÖ¤£¬²¿Êğ
+å®Œæ•´çš„é¡¹ç›®æ„å»ºè¿‡ç¨‹åŒ…æ‹¬ï¼š
+	æ¸…ç†ï¼Œç¼–è¯‘ï¼Œæµ‹è¯•ï¼Œæ‰“åŒ…ï¼Œé›†æˆæµ‹è¯•ï¼ŒéªŒè¯ï¼Œéƒ¨ç½²
 
-mavenÖĞ¶¨ÒåÁË3Ì×¸÷×Ô¶ÀÁ¢µÄÉúÃüÖÜÆÚ£º
-	clean ÇåÀíÏîÄ¿
-	    pre-clean Ö´ĞĞÇåÀíÇ°µÄ¹¤×÷
-	    clean ÇåÀíÉÏÒ»´Î¹¹½¨Éú³ÉµÄËùÓĞÎÄ¼ş
-	    post-clean Ö´ĞĞÇåÀíºóµÄÎÄ¼ş
-	default ¹¹½¨ÏîÄ¿£º¹¹½¨µÄºËĞÄ²¿·Ö
-	    compile£¬test£¬package£¬install
-	site Éú³ÉÏîÄ¿Õ¾µã
-	    pre-site ÔÚÉú³ÉÏîÄ¿Õ¾µãÇ°ÒªÍê³ÉµÄ¹¤×÷
-	    site Éú³ÉÏîÄ¿µÄÕ¾µãÎÄµµ
-	    post-site ÔÚÉú³ÉÏîÄ¿Õ¾µãºóÒªÍê³ÉµÄ¹¤×÷
-	    site-deploy ·¢²¼Éú³ÉµÄÕ¾µãµ½·şÎñÆ÷ÉÏ
+mavenä¸­å®šä¹‰äº†3å¥—å„è‡ªç‹¬ç«‹çš„ç”Ÿå‘½å‘¨æœŸï¼š
+	clean æ¸…ç†é¡¹ç›®
+	    pre-clean æ‰§è¡Œæ¸…ç†å‰çš„å·¥ä½œ
+	    clean æ¸…ç†ä¸Šä¸€æ¬¡æ„å»ºç”Ÿæˆçš„æ‰€æœ‰æ–‡ä»¶
+	    post-clean æ‰§è¡Œæ¸…ç†åçš„æ–‡ä»¶
+	default æ„å»ºé¡¹ç›®ï¼šæ„å»ºçš„æ ¸å¿ƒéƒ¨åˆ†
+	    compileï¼Œtestï¼Œpackageï¼Œinstall
+	site ç”Ÿæˆé¡¹ç›®ç«™ç‚¹
+	    pre-site åœ¨ç”Ÿæˆé¡¹ç›®ç«™ç‚¹å‰è¦å®Œæˆçš„å·¥ä½œ
+	    site ç”Ÿæˆé¡¹ç›®çš„ç«™ç‚¹æ–‡æ¡£
+	    post-site åœ¨ç”Ÿæˆé¡¹ç›®ç«™ç‚¹åè¦å®Œæˆçš„å·¥ä½œ
+	    site-deploy å‘å¸ƒç”Ÿæˆçš„ç«™ç‚¹åˆ°æœåŠ¡å™¨ä¸Š
 
 
 
-²å¼ş£ºhttp://maven.apache.org/plugins/index.html
+æ’ä»¶ï¼šhttp://maven.apache.org/plugins/index.html
+<!-- å¯¼å‡ºæœ‰ä¾èµ–jaråŒ…çš„jaråŒ…ï¼Œå¯ç›´æ¥æ‰§è¡Œï¼Œeclipseè¿è¡Œå‘½ä»¤ assembly:assembly -->
+<build>  
+    <plugins>  
+      <plugin>  
+        <artifactId>maven-assembly-plugin</artifactId>  
+        <configuration>  
+          <descriptorRefs>  
+            <descriptorRef>jar-with-dependencies</descriptorRef>  
+          </descriptorRefs> 
+          <archive>  
+            <manifest>  
+              <mainClass>com.fccs.kpimail.business.main.KpiMain</mainClass>  
+            </manifest>  
+          </archive>           
+        </configuration>  
+      </plugin>  
+      
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>  
+        <artifactId>maven-surefire-plugin</artifactId>  
+        <version>2.18.1</version>  
+        <configuration>  
+          <skipTests>true</skipTests>  
+        </configuration>  
+      </plugin>
+      
+    </plugins>  
+  </build> 
