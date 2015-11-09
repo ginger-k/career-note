@@ -29,6 +29,9 @@
 
 			location / {
 				proxy_pass http://tomcat_cluster_test;
+				proxy_set_header Host $host;
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
 			}	
 		}
 	
@@ -52,6 +55,9 @@
 
 			location / {
 				proxy_pass http://ip_hash_test;
+				proxy_set_header Host $host;
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
 			}	
 		}
 	3).ทรฮส 127.0.0.1
@@ -81,6 +87,9 @@
 
 			location / {
 				proxy_pass http://tomcat_memcached_test;
+				proxy_set_header Host $host;
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
 			}	
 		}
 	
