@@ -1,0 +1,33 @@
+末尾添加：append
+末尾移除: pop
+添加集合：extend
+删除某个：remove
+指定位置插入：insert
+
+遍历：
+	for i in llist:
+	    print(i)
+		  
+	count = 0
+	while count < len(llist):
+		print(llist[count])
+		count = count + 1
+		
+列表中存储列表
+	ll = ['a','b','c',[1,2,3]]
+	for i in ll:
+	if not isinstance(i,list):
+		print(i)
+	else:
+		for j in i:
+			print(j)
+			
+定义函数
+>>>	def print_lol(the_list):
+		for each_item in the_list:
+			if isinstance(each_item, list):
+				print_lol(each_item)
+			else:
+				print(each_item)
+>>>	the_list = ['a','b',[True,False,[1,2]]]
+>>> print_lol(the_list)
