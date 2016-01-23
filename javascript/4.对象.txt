@@ -48,3 +48,11 @@
 		
 	delete 只能删除实例上的属性，不能删除原型上的属性
 	
+简单单体：
+	var Ext = Ext || {};
+	
+闭包单体:
+	var Ext = (function(){
+		return {};
+	})();
+	
