@@ -13,35 +13,3 @@ maven中定义了3套各自独立的生命周期：
 	    site 生成项目的站点文档
 	    post-site 在生成项目站点后要完成的工作
 	    site-deploy 发布生成的站点到服务器上
-
-
-
-插件：http://maven.apache.org/plugins/index.html
-<!-- 导出有依赖jar包的jar包，可直接执行，eclipse运行命令 assembly:assembly -->
-<build>  
-    <plugins>  
-      <plugin>  
-        <artifactId>maven-assembly-plugin</artifactId>  
-        <configuration>  
-          <descriptorRefs>  
-            <descriptorRef>jar-with-dependencies</descriptorRef>  
-          </descriptorRefs> 
-          <archive>  
-            <manifest>  
-              <mainClass>com.fccs.kpimail.business.main.KpiMain</mainClass>  
-            </manifest>  
-          </archive>           
-        </configuration>  
-      </plugin>  
-      
-      <plugin>  
-        <groupId>org.apache.maven.plugins</groupId>  
-        <artifactId>maven-surefire-plugin</artifactId>  
-        <version>2.18.1</version>  
-        <configuration>  
-          <skipTests>true</skipTests>  
-        </configuration>  
-      </plugin>
-      
-    </plugins>  
-  </build> 
