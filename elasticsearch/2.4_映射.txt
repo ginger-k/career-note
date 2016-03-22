@@ -1,8 +1,7 @@
-映射(mapping)机制用于进行字段类型确认，将每个字段匹配为一种确定的数据类型(string, number, booleans, date等)
-映射还用于设置关联到类型上的元数据。
+每个类型(type)都有自己的映射(mapping)或者结构定义，就像传统数据库表中的列一样
 
-查看映射，gb是索引，tweet是类型
-	GET /gb/_mapping/tweet
+查看映射
+	GET /{index}/_mapping/{type}
 	
 更新映射
 	如果一个字段在映射中已经存在，就不能修改
