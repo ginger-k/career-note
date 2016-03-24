@@ -15,8 +15,13 @@
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/activiti?useUnicode=true&amp;characterEncoding=utf8"/>
 		<property name="jdbcUsername" value="root"/>
 		<property name="jdbcPassword" value="password"/>
-		<property name="databaseSchemaUpdate" value="true"/>		
+		<property name="databaseSchemaUpdate" value="true"/>
+		<!--
+			false: 不能自动创建表，需要表存在，可以通过org.activiti.db.create下的sql手动创建
+			true: 如果表不存在，自动创建表
+			create-drop: 先删除表再创建表
+		-->
 	</bean>
 	
 	ProcessEngine processEngine=ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti.cfg.xml").buildProcessEngine();
-	//ProcessEngine processEngine =ProcessEngines.getDefaultProcessEngine();//加载默认配置文件activiti.cfg.xml
+	//ProcessEngine processEngine =ProcessEngines.getDefaultProcessEngine();//默认加载classpath下的activiti.cfg.xml
