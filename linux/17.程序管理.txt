@@ -1,7 +1,7 @@
-
-
 ps：将某个时间点的程序运行情况截取下来
 	ps aux -- 系统所有程序
+	ps -ef | grep 'elasticsearch'
+	
 top：持续侦测程序运行的状态
 	top -d 5  --  每5秒更新一次top
 	top -b -n 2 > /tmp/top.txt  --  将top的信息进行2次，结果输出到文件中
