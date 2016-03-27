@@ -48,7 +48,7 @@
 	List<ProcessDefinition> list = processDefinitionQuery.list();
 	if(list!=null && list.size()>0){
 		for (ProcessDefinition pd : list) {
-			System.out.println("流程定义的ID："+pd.getId()); 
+			System.out.println("流程定义的ID："+pd.getId()); //key：版本：随机生成数
 			System.out.println("流程定义的key："+pd.getKey()); //bpmn的properties视图中process的Id
 			System.out.println("流程定义的名称："+pd.getName()); //bpmn的properties视图中process的Name
 			System.out.println("流程定义的版本："+pd.getVersion());
