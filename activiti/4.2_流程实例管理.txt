@@ -14,12 +14,12 @@
 启动流程实例
 	String processDefinitionKey="helloworld";
 	RuntimeService runtimeService = processEngine.getRuntimeService();//与运行过程中有关的操作：执行对象，流程实例
-	ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);//根据key启动流程(按最新版本启动)
+	ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);//根据流程定义的key启动流程(按最新版本启动)
 	System.out.println("流程启动完成！：流程实例id："+processInstance.getProcessInstanceId());
 
-查询当前办理人的个人任务
+查询当前办理人的个人任务, act_ru_task
 	TaskService taskService = processEngine.getTaskService();//与正在执行的任务相关的sevice，操作任务节点(userTask节点)相关。
-	String  assignee = "明星";//任务办理人
+	String  assignee = "明星";//任务办理人,task节点的assignee属性
 	TaskQuery taskQuery = taskService.createTaskQuery();//创建任务的查询对象
 	taskQuery.taskAssignee(assignee);//指定任务办理人
 	List<Task> list = taskQuery.list();//查询列表
