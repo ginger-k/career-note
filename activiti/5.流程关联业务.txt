@@ -21,6 +21,14 @@
 			String business_key = processInstance.getBusinessKey();
 	
 
+当前任务关联url
+	花流程图的时候，给task指定form key，
+	根据taskId就能获取这个值，然后重定向到这个url
+		TaskFormData formData = formService.getTaskFormData(taskId);
+		String url = formData.getFormKey();
+		url += "?taskId=" + taskId;
+
+	
 下一个任务办理人关联业务：
 	将每一个任务的办理人规定好，例如张三的领导是李四，李四的领导是王五，这样张三提交任务，
 	就可以查询出张三的领导是李四，通过类的方式设置下一个任务的办理人
@@ -60,6 +68,4 @@
 
 多条连线关联不同任务办理人：
 	一般都是驳回给流程的提交者，可以从流程实例的BUSINESS_KEY中获取
-	批准给下一个任务，就可以从表中获取当然办理人的上级
-
-	
+	批准给下一个任务，就可以从表中获取当前办理人的上级
