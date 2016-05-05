@@ -19,6 +19,11 @@
 事件委派
 	live(type,[data],fn) -- 给元素绑定事件,元素可以是以后添加进来
 	die(type,[fn])
+	on(events,[selector],[data],fn) -- 给元素绑定事件,元素可以是以后添加进来
+		$(document).on('blur', 'input[name="password"]', function(e){
+				console.log($(e.currentTarget).val());
+			}
+		);
 
 事件切换
 	hover([over,]out) -- 模拟光标悬停事件,

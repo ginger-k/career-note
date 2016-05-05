@@ -43,7 +43,7 @@ sql片段: 使用<sql id=”” />标签定义SQL片段，在需要的地方通过<include refid=""/>
 		<foreach collection="list" item="item" separator=",">
 		    (#{item.usernmae},#{item.password})	
 		</foreach>
-	</delete>
+	</insert>
 
 	<!-- 用trim实现where -->
 	<trim prefix="WHERE" prefixOverrides="AND |OR ">
