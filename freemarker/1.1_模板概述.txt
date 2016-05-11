@@ -13,35 +13,24 @@ Template + data-model = output
 	directive
 	
 ---------------------------------------------------------------------------------------
-	
-标签(指令)：#开头(freemarker定义)，@开头(定义)
-注释：<#!-- comments -->
 
-基础指令：if，list，include
+interpolations插值
+	${…},FreeMarker将会输出真实的值来替换花括号内的表达式
+	
+FTL tags 标签
+	#开头(freemarker定义)，@开头(自定义)
+	
+Comments 注释
+	<#!-- comments -->
+
+directives 指令
+	标签对，或者单标签
 	<#if user == "BigJoe">哈哈哈</#if>
-	<#if gender>男<#else>女</#if>
-	<#if price <= 10>便宜<#elseif price <= 20>还可以<#else>贵</#if>
-	
-	<ul>	<#-- 如果fruits的size为0，ul依旧存在 -->
-		<#list fruits as fruit>
-			<li>${fruit}
-		</#list>
-	</ul>
-	<#list fruits>	<#-- 解决上述问题 -->
-		<ul>
-			<#items as fruit>
-				<li>${fruit}
-			</#items>
-		</ul>
-	</#list>
-	<#list fruits as fruit>${fruit}<#sep>, <#else>没有</#list>	<#-- sep需要注意版本 -->
-	${fruits?join(", ", "没有")}	<#-- 如果每个fruit不是string，就不要这么干了 -->
-	
-	<#include "/copyright_footer.html">
+	<#assign name = "BigJoe">
 
 ---------------------------------------------------------------------------------------
 	
-插值(built-ins)：类似于java中的方法，使用 ? 操作符
+内建函数(built-ins)：类似于java中的方法，使用 ? 操作符
 	user?html	html风格，&→&amp
 	user?upper_case		John→JOHN
 	user?cap_first		john→John
@@ -60,9 +49,11 @@ Template + data-model = output
 	
 ---------------------------------------------------------------------------------------
 	
-处理空值：变量不存在，变量为null
-	使用!设置默认值，${user!"visitor"}
-	<#if user??><h1>Welcome ${user}!</h1></#if>	如果为null，会跳过标签
+处理空值：变量不存在，变量为null，对freemarker来说是一样的
+	使用!设置默认值
+		${user!"visitor"}
+	适用??判断变量否存在
+		<#if user??><h1>Welcome ${user}!</h1></#if>	如果user变量不存在，会跳过标签
 	
 	
 	

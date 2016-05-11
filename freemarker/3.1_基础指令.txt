@@ -1,0 +1,21 @@
+基础指令：if，list，include
+	<#if user == "BigJoe">哈哈哈</#if>
+	<#if gender>男<#else>女</#if>
+	<#if price <= 10>便宜<#elseif price <= 20>还可以<#else>贵</#if>
+	
+	<ul>	<#-- 如果fruits的size为0，ul依旧存在 -->
+		<#list fruits as fruit>
+			<li>${fruit}
+		</#list>
+	</ul>
+	<#list fruits>	<#-- 解决上述问题 -->
+		<ul>
+			<#items as fruit>
+				<li>${fruit}
+			</#items>
+		</ul>
+	</#list>
+	<#list fruits as fruit>${fruit}<#sep>, <#else>没有</#list>	<#-- sep需要注意版本 -->
+	${fruits?join(", ", "没有")}	<#-- 如果每个fruit不是string，就不要这么干了 -->
+	
+	<#include "/copyright_footer.html">

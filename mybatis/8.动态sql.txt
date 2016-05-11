@@ -37,11 +37,24 @@ sql片段: 使用<sql id=”” />标签定义SQL片段，在需要的地方通过<include refid=""/>
 		</foreach>
 	</delete>
 
-	<!-- 批量添加 -->
+	<!-- mysql批量添加 -->
 	<insert id="insertBatch" parameterType="java.util.List">
 	    insert into tb_user(username,password) values
 		<foreach collection="list" item="item" separator=",">
 		    (#{item.usernmae},#{item.password})	
+		</foreach>
+	</insert>
+	<!-- oracle批量添加 -->
+	<insert id="addScoreLatitudeList" parameterType="java.util.List">
+		INSERT INTO T_OT_SCORE_LAT
+		    ( ID, COMPANY_ID, SCORE_LAT, SCORE_PCT )
+	    <foreach collection="list" item="item" index="index" separator="union all" > 
+		    (select  
+				sys_guid(), 
+				#{item.companyId,jdbcType=VARCHAR}, 
+				#{item.scoreLat,jdbcType=VARCHAR}, 
+				#{item.scorePct,jdbcType=VARCHAR}
+		     from dual)
 		</foreach>
 	</insert>
 
