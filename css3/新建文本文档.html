@@ -4,22 +4,36 @@
 	<meta charset="utf-8">
 	<style type="text/css">
 		div {
-			-webkit-columns: 150px 4;
-			-moz-columns: 150px 4;
-			columns: border-box;
+			width: 60px;
+			border: 1px solid red;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		
+		td > div{
+			width: 200px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
 		}
 	</style>
 </head>
 <body>
 	<div>
-		<h4>title</h4>
-		<p>text text text text text text text text text text text text text text text text text text text</p>
-		<h4>title</h4>
-		<p>text text text text text text text text text text text text text text text text text text text</p>
-		<h4>title</h4>
-		<p>text text text text text text text text text text text text text text text text text text text</p>
-		<h4>title</h4>
-		<p>text text text text text text text text text text text text text text text text text text text</p>
+		我密密麻麻的鬼斧神工
 	</div>
+
+	<table border="1">
+		
+		<tr>
+			<td class="aside"><div>我密密麻麻的鬼斧神工哈哈哈哈哈哈哈哈</div></td>
+			<td class="aside"><div>我密密麻麻的鬼斧神工</div></td>
+		</tr><tr>
+			<td class="aside"><div>我密密麻麻的鬼斧神工</div></td>
+			<td class="aside"><div>我密密麻麻的鬼斧神工</div></td>
+		</tr>
+		
+	</table>
 </body>
 </html>

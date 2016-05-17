@@ -1,4 +1,4 @@
-CSS3 提供了多列布局属性columns
+CSS3 提供一种崭新的布局方式：Flexbox 布局，即弹性伸缩布局模型(Flexible Box).
 
 
 <!DOCTYPE html>

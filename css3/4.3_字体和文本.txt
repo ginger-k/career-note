@@ -43,9 +43,10 @@
 		ellipsis 裁剪文本时添加"..."省略号
 		p {
 			width: 160px;
-			white-space: nowrap;
 			background: silver;
+			white-space: nowrap;
 			text-overflow: ellipsis;
+			overflow: hidden;
 		}
 文本描边
 	CSS3 提供了描边属性，即text-stroke、text-stroke-width、text-stroke-color。
