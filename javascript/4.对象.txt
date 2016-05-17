@@ -20,6 +20,7 @@
 		function Person(name){this.name = name;}
 		Person.prototype; //Person {}
 		Person.prototype.constructor; //function Person(name){this.name = name;}
+	对象实例的内部隐藏属性__proto__，指向其原型
 		
 Object的每个实例都有以下属性和方法
 	constructor -- var p = new Person();p.constructor;//function Person(name){this.name = name;}

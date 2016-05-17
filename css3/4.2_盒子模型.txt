@@ -33,26 +33,26 @@
 	
 5.元素可见性
 	visibility
-		visible 默认值，元素在页面上可见
-		hidden 元素不可见，但会占据空间
+		visible  默认值，元素在页面上可见
+		hidden 	 元素不可见，但会占据空间
 		collapse 元素不可见，隐藏表格的行与列，如果不是表格，则和hidden 一样。
 	
 6.元素盒类型
 	display
-		block 盒子为块级元素(div)
-		inline 盒子为行内元素(span)
-		inline-block 盒子为行内-块元素(img)
-		none 盒子不可见，不占位
+		block 	盒子为块级元素(div)
+		inline 	盒子为行内元素(span)
+		inline-block 	盒子为行内-块元素(img)
+		none 	盒子不可见，不占位
 		
 7.元素的浮动
 	float
-		left 浮动元素靠左
-		right 浮动元素靠右
-		none 禁用浮动
+		left 	浮动元素靠左
+		right 	浮动元素靠右
+		none 	禁用浮动
 	浮动有一个问题：当一个元素盒子被浮动后，下面的元素会自动堆叠处理，导致元素不可见或部分不可见。
 	使用clear 属性来处理
 	clear 
-		none 允许两边均可浮动
-		left 左边界不得浮动
-		right 右边界不得浮动
-		both 两边都不得浮动
+		none	允许两边均可浮动
+		left 	左边界不得浮动
+		right	右边界不得浮动
+		both	两边都不得浮动

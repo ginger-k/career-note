@@ -22,7 +22,7 @@
 	
 
 当前任务关联url
-	花流程图的时候，给task指定form key，
+	画流程图的时候，给task指定form key，
 	根据taskId就能获取这个值，然后重定向到这个url
 		TaskFormData formData = formService.getTaskFormData(taskId);
 		String url = formData.getFormKey();
