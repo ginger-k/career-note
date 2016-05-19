@@ -51,10 +51,10 @@
 		showColorOfObj(); //yellow
 		showColor(); //red 
 	bind()函数的原理：
-		Function.prototype.bind = function(target) {
-			var _self = this; //因为，内部函数要访问其外部的this
+		Function.prototype.bind = function(scope) {
+			var _fn = this; //因为，内部函数要访问其外部的this
 			return function() {
-				return _self.apply(obj, arguments); //函数外部的任何this变量都不可见
+				return _fn.apply(scope, arguments); //函数外部的任何this变量都不可见
 			}
 		}
 		
@@ -63,6 +63,8 @@
 函数的属性：
 	caller，保存着调用当前函数的函数的引用
 	length，表示函数希望接收的命名参数的个数
+	arguments，
+	name，
 	prototype，指向原型
 	
 -------------------------------------------------------------------------------------
