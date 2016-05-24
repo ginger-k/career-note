@@ -28,6 +28,8 @@ Boolean：两个字母值，true和false
 
 Number：表示整数和浮点数值，NaN与任何值都不相等，包括NaN本身
 	将值转换为Number，Number()，parseInt()，parseFloat()
+	
+变量声明：隐式声名变量总是被创建为全局变量
 
 String：表示由零或多个16位Unicode字符组成的字符序列
 	将值转换为字符串，String()

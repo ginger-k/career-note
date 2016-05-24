@@ -1,0 +1,50 @@
+@charset: "utf-8";
+
+body,h1,ul {
+	margin: 0px;
+}
+ul {
+	list-style: outside none none;
+}
+a {
+	text-decoration: none;
+}
+.none {
+	display: none;
+}
+#header {
+	width: 100%; height: 70px; background: #333;
+}
+#header .center {
+	width: 1263px; /*1280去掉滚动条*/
+	height: 70px; 
+	margin: 0 auto; /*左右居中*/
+}
+#header  .logo {
+	width: 240px; 
+	height: 70px; 
+	text-indent: -500px; /*首行缩进*/
+	background-image: url(../img/logo.png);
+	float: left; /*h1和ul显示在一行*/
+}
+#header .link {
+	width: 650px;
+	height: 70px;
+	padding: 0px;
+	line-height: 70px; /*垂直居中，行高和高度一致*/
+	color: #eee;
+	float: right;
+}
+#header .link li {
+	width: 120px;
+	text-align: center;
+	float: left; /*h1和ul显示在一行*/
+}
+#header .link a {
+	color: #eee;
+	display: block; /*移动块上就显示鼠标*/
+}
+#header .link a:hover,
+#header .active a {
+	background-color: #000;
+}
