@@ -26,7 +26,7 @@ mybatis作为一个orm框架，也对sql的高级查询做了支持.
 2.一对多(订单和订单商品详情)
 	一方添加多方对象的集合属性(Order中添加一个List<OrderItemDetail>属性)
 	<resultMap type="cn.itcast.domain.Order" id="one2many" autoMapping="true" extends="one2one"> <!-- extends可以省去重复的东西 -->
-		<collection property="orderItemDetail" javaType="List" ofType="cn.itcast.domain.OrderItemDetail" autoMapping="true">
+		<collection property="orderItemDetail" javaType="List" ofType="cn.itcast.domain.OrderItemDetail">
 			<id property="id" column="orderdetail_id"/>
 		</collection>
 	</resultMap>
