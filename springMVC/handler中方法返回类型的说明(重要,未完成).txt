@@ -15,4 +15,6 @@ handler处理方法的返回值可以是
 	View -- 没有ModelMap
 	String -- 没有ModelMap,返回值即为viewName
 		  重定向: return "redirect:/hello.do";
+		  转发：  return "forward:/order/add";
+
 	Void -- 没有ModelMap,viewName根据request

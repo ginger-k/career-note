@@ -29,7 +29,7 @@
 		logger.info("User对象为：{}", user);
 		return new ModelAndView("success");
 	}
-	前台ajax的contentType : 'application/json;charset=utf-8'
+	该注解常用来处理Content-Type: 不是application/x-www-form-urlencoded编码的内容，例如application/json, application/xml等
 
 6.POJO对象绑定参数: SpringMVC会将请求过来的参数名和POJO实体中的属性名进行匹配，如果名称一致，将把值填充到对象中
 	@RequestMapping("/test")
