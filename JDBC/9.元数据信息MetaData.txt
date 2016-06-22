@@ -5,7 +5,7 @@
     DatabaseMetaData
 	DatabaseMetaData dbmd = connection.getMetaData();
 	获取数据库的一些信息: 数据库的名称,用户名,驱动名等
-	Connection currentConnection=dbmp.getConnection();
+	Connection currentConnection=dbmd.getConnection();
 
 2.参数的元数据
     ParameterMetaData 

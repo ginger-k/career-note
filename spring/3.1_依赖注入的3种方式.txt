@@ -5,8 +5,8 @@
 		    private String name;
 		    private double price;
 		    public Car(String name, double price) {
-			this.name = name;
-			this.price = price;
+				this.name = name;
+				this.price = price;
 		    }
 		}
 	    ≈‰÷√
@@ -25,10 +25,10 @@
 		    private String name;
 		    private Car car;
 		    public void setName(String name) {
-			this.name = name;
+				this.name = name;
 		    }
-	       	    public void setCar(Car car) {
-			this.car = car;
+	       	public void setCar(Car car) {
+				this.car = car;
 		    }
 		}
 	    ≈‰÷√
@@ -45,6 +45,6 @@
 		    private HttpServletRequest request;
 		    @Override
 		    public void setServletRequest(HttpServletRequest request) {
-			this.request=request;
+				this.request=request;
 		    }
 		}

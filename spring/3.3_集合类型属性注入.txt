@@ -30,38 +30,38 @@ Spring 对每个常用集合对象，提供单独元素完成注入
 配置
     <bean id="collectionBean" class="cn.itcast.bean.CollectionBean">
 
-	<!-- 注入List -->
-	<property name="list">
-	    <list>
-		<!-- value注入简单类型，ref注入复杂类型 -->
-		<value>abc</value>
-		<value>def</value>
-		<value>qwe</value>
-	    </list>
-	</property>
+		<!-- 注入List -->
+		<property name="list">
+			<list>
+				<!-- value注入简单类型，ref注入复杂类型 -->
+				<value>abc</value>
+				<value>def</value>
+				<value>qwe</value>
+			</list>
+		</property>
 
-	<!-- 注入Set -->
-	<property name="set">
-	    <set>
-		<value>10</value>
-		<value>20</value>
-	    </set>
-	</property>
+		<!-- 注入Set -->
+		<property name="set">
+			<set>
+				<value>10</value>
+				<value>20</value>
+			</set>
+		</property>
 
-	<!-- 注入Map -->
-	<property name="map">
-	    <map>
-		<entry key="qaz" value="11" />
-		<entry key="wsx" value="22" />
-	    </map>
+		<!-- 注入Map -->
+		<property name="map">
+			<map>
+				<entry key="qaz" value="11" />
+				<entry key="wsx" value="22" />
+			</map>
 
-	</property>
-	<!-- 注入Properties -->
-	<property name="properties">
-	    <props>
-		<prop key="qwe">1234</prop>
-		<prop key="asd">5678</prop>
-	    </props>
-	</property>
+		</property>
+		<!-- 注入Properties -->
+		<property name="properties">
+			<props>
+				<prop key="qwe">1234</prop>
+				<prop key="asd">5678</prop>
+			</props>
+		</property>
 
     </bean>

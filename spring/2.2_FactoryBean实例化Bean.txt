@@ -3,7 +3,7 @@ FactoryBeanÊµÀý»¯Bean
 		public class Bean4FactoryBean implements FactoryBean<Bean4> {
 		    @Override
 		    public Bean4 getObject() throws Exception {
-			return new Bean4();
+				return new Bean4();
 		    }
 		    ... ...
 		}

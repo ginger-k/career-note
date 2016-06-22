@@ -10,15 +10,15 @@
 
 主要注解
     定义Bean
-	@Component -- value属性指定bean的名字 
+		@Component -- value属性指定bean的名字 
 	    @Repository -- 标注DAO实现类
 	    @Service -- 标注Service实现类
 	    @Controller -- 标注Controller实现类
 	    这三个注解上用了@Component注解,让标注类本身的用途清晰,Spring在后续版本会对其增强
 
     生命周期
-	@PostConstruct -- 初始化
-	@PreDestroy  -- 销毁
+		@PostConstruct -- 初始化
+		@PreDestroy  -- 销毁
     
     作用域
-	@Scope -- 默认singleton 
+		@Scope -- 默认singleton 

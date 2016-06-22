@@ -11,7 +11,7 @@ BeanFactory实例化Bean的3种方式:
 	    静态工厂
 		public class Bean2Factory {
 		    public static Bean2 createBean2(){
-			return new Bean2();
+				return new Bean2();
 		    }
 		}
 	    配置
@@ -24,7 +24,7 @@ BeanFactory实例化Bean的3种方式:
 	    实例工厂
 		public class Bean3Factory {
 		    public Bean3 createBean3() {
-			return new Bean3();
+				return new Bean3();
 		    }
 		}
 	    配置

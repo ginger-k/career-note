@@ -11,7 +11,7 @@
 	<setting name="cacheEnabled" value="false"/> <!-- 关闭所有namespace的二级缓存 -->
 
 代码测试二级缓存的存在性:
-	SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
+		SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
         UserMapper userMapper1 = sqlSession1.getMapper(UserMapper.class);
         User user1 = userMapper1.selectUser(1);
         System.out.println(user1);
