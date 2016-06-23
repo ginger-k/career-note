@@ -7,10 +7,10 @@ for in：可以用来枚举对象的属性，对象的属性没有顺序
 	建议在循环之前，先检查确认该对象的值不是null或undefined
 	if(obj !== null && obj !== undefined){
 	    for(var property in obj){
-		//防止obj有一个属性或方法也叫hasOwnProperty
-		if(Object.prototype.hasOwnProperty.call(obj,property)){
-		    alert(obj[property]);
-		}
+			//防止obj有一个属性或方法也叫hasOwnProperty
+			if(Object.prototype.hasOwnProperty.call(obj,property)){
+				alert(obj[property]);
+			}
 	    }
 	}		
 

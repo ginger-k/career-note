@@ -66,7 +66,7 @@
 			当再一次单击同一个元素时，则触发指定的第二个函数，
 			如果有更多个函数，则依次触发，直到最后一个
 				//简化上面hover的代码
-				$('.btn').hover(function () {
+				$('.btn').toggle(function () {
 					$(this).toggleClass('hover');
 				});
 5.event对象

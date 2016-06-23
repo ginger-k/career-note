@@ -36,7 +36,7 @@
 	以上方法都不会修改数组中包含的值，给定函数可以接受3个参数，function(item,index,array){}
 
 	reduce() -- 归并，迭代数组的每一项，构建一个最终返回的值
-	var values = [1,2,3,4,5];
+		var values = [1,2,3,4,5];
         var sum = values.reduce(function(prev, cur, index, array){
             return prev + cur;
         });

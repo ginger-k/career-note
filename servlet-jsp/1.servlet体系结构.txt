@@ -1,15 +1,15 @@
 
 servlet的介绍
     是什么：
-	servlet是一个接口，定义了动态web开发的技术规范，基于request-response请求模型
+		servlet是一个接口，定义了动态web开发的技术规范，基于request-response请求模型
     用来干什么：
-	开发动态web资源
+		开发动态web资源
     怎样使用：
-	1.编写一个类去继承HttpServlet
-	2.覆盖doGest(),doPost()方法
-	3.去web.xml文件配置写好的servlet程序
-		1).注册servlet
-		2).映射对外访问路径
+		1.编写一个类去继承HttpServlet
+		2.覆盖doGest(),doPost()方法
+		3.去web.xml文件配置写好的servlet程序
+			1).注册servlet
+			2).映射对外访问路径
 
 
 servlet的继承体系：

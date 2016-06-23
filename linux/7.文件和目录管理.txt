@@ -17,8 +17,8 @@ ls：查看文件与目录
 	ls -alhil /
 
 cp：复制文件或目录
-	cp ~/.bashr /tmp/bashrc -- 赋值，并重命名
-	cp -r /etc/ /tmp -- 赋值目录中的所有文件或目录
+	cp ~/.bashr /tmp/bashrc -- 复制，并重命名
+	cp -r /etc/ /tmp -- 复制目录中的所有文件或目录
 rm：移除文件或目录
 	rm -rf /opt -- 强制删除目录中的文件和目录
 mv：移动文件或目录，或重命名
