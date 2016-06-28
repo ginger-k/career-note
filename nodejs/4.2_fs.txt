@@ -1,13 +1,20 @@
+module.filename：开发期间，该行代码所在的文件
+__filename：始终等于 module.filename
+__dirname：开发期间，该行代码所在的目录
+
 var fs = require('fs');
 
+//是否存在
 fs.exists('./helloDir', function(exists) {
   console.log(exists ? 'it\'s there' : 'no passwd!');
 });
 
+//创建目录
 fs.mkdir('./helloDir', 0777, function(err){
 	if (err) throw err;
 });
 
+//创建文件
 fs.writeFile('./helloDir/message.txt', '你好 node.js', 'utf8', function(err){
 	if (err) throw err;
 	console.log('写入文件成功');
