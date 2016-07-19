@@ -2,3 +2,4 @@
 
 db.getCollectionNames()
 db.getCollectionInfos()
+show collections

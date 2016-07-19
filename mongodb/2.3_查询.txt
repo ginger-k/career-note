@@ -1,4 +1,5 @@
 查询数据库中集合
+	show collections
 	db.getCollectionNames();
 	db.getCollectionInfos();
 
