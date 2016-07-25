@@ -18,7 +18,7 @@ interpolations插值
 	${…},FreeMarker将会输出真实的值来替换花括号内的表达式
 	
 FTL tags 标签
-	#开头(freemarker定义)，@开头(自定义)
+	#开头(freemarker定义)，@开头(自定义), 标签中不能适用插值
 	
 Comments 注释
 	<#!-- comments -->
@@ -31,21 +31,35 @@ directives 指令
 ---------------------------------------------------------------------------------------
 	
 内建函数(built-ins)：类似于java中的方法，使用 ? 操作符
-	user?html	html风格，&→&amp
-	user?upper_case		John→JOHN
-	user?cap_first		john→John
-	user?length		字符数
-	animals?size	 集合中元素个数
-	<#list animals as animal> 在这之间 </#list>
-		animal?index	从0开始
-		animal?counter	从1开始
-		animal?item_parity 	"odd"或"even"，用于隔行变色 <
-		td class="${animal?item_parity}Row">
-		animal?item_cycle('odd', 'even') 	类似上述用法	
-		animal.sex?string("公", "母")
-	${fruits?join(", ", "没有")}  列表元素分隔
-	user?starts_with("J") 返回true或false
-	user?starts_with("J")?string("是", "否")	链式调用插值
+	字符串中
+		user?html	html风格，&→&amp
+		user?upper_case		John→JOHN
+		user?cap_first		john→John
+		user?lower_case
+		user?trim
+		user?length		字符数
+		user?starts_with("J") 返回true或false
+		name?substring(0,10) 字符串截取
+	数字中
+		-1.9?int	-1
+		<#assign tempNum=20>  
+		${tempNum}      
+		${tempNum?string.number}或${tempNum?string("number")}  结果为20  
+		${tempNum?string.currency}或${tempNum?string("currency")}  结果为￥20.00  
+		${tempNum?string. percent}或${tempNum?string("percent")}  结果为2,000%  
+	boolean
+		sex?string("公", "母")
+		user?starts_with("J")?string("是", "否")	链式调用插值
+	日期
+		${updated?string("yyyy-MM-dd HH:mm:ss")}
+	序列中
+		animals?size	 集合中元素个数
+		<#list animals as animal> 在这之间 </#list>
+			animal?index	从0开始
+			animal?counter	从1开始
+			animal?item_parity 	"odd"或"even"，用于隔行变色 <td class="${animal?item_parity}Row">
+			animal?item_cycle('odd', 'even') 	类似上述用法
+		${fruits?join(", ", "没有")}  列表元素分隔
 	
 ---------------------------------------------------------------------------------------
 	
@@ -54,6 +68,10 @@ directives 指令
 		${user!"visitor"}
 	适用??判断变量否存在
 		<#if user??><h1>Welcome ${user}!</h1></#if>	如果user变量不存在，会跳过标签
+	多级访问
+		animals.python.price!0 -- animal.python必须存在
+		(animal.python.price)!0 -- animal,python,price都可以不存在
+		(animal.python.price)??
 	
 	
 	

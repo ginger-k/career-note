@@ -43,10 +43,9 @@
 ---------------------------------------------------------------------------------------------------
 
 模板中定义变量
-	plain variables
-	local variables
-	loop variables
-	global variables
+	简单变量：assign或macro指令
+	局部变量：只在宏内可见，local指令
+	循环变量：list自动创建
 
 命名空间
 	<#import "/lib/my_test.ftl" as my>
