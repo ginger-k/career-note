@@ -1,5 +1,5 @@
 控制器处理方法上可以加的注解: 
-	@CookieValue,@PathVariable,@RequestParam,@RequestBody
+	@CookieValue,@PathVariable,@RequestParam,@RequestBody,@CookieValue
 
 
 1.获取servlet内置对象: 直接在方法中传入参数

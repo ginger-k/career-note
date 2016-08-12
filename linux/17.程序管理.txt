@@ -30,3 +30,16 @@ netstat：追踪网络或插槽文件、
 	
 pmap
 	pmap -d pid		根据进程查看进程相关信息占用的内存情况
+	
+查看cpu信息： cat /proc/cpuinfo 
+	cpu物理个数: cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l
+	cpu逻辑个数：cat /proc/cpuinfo | grep 'processor' | wc -l
+	cpu核心数: 	 cat /proc/cpuinfo | grep 'cores' | uniq
+	
+查看硬盘: df -h
+
+查看内核/操作系统/CPU信息
+	uname -a  
+	
+查看操作系统版本
+	head -n 1 /etc/issue
