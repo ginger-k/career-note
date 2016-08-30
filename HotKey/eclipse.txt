@@ -43,6 +43,9 @@
 【Alt+Shift+C】修改函数结构
 【Alt+Shift+Z】重构的后悔药(Undo)
 
+搜索
+【Ctrl+H】打开搜索框
+
 
  
 【Ctrl+Shift+L】查看更多快捷键

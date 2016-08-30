@@ -65,11 +65,13 @@
     :disabled -- 不可用元素
     :checked -- 被选中的元素,checkbox,radio
     :selected -- 选中的option元素
-注意: 获取radio,checkbox,select的值的时候要用each(callback)遍历
-	$("input[name='gender']:checked").each(function(){alert($(this).val());});
-	$("input[name='hobby']:checked").each(function(){alert($(this).val());});
-	$("select[name=city] option:selected").each(function(){alert($(this).val());});
-      设置radio,checkbox,select的时候,val(arr)的参数是String类型的arr
-	$("input[name='gender']").val(["male"]);
-	$("input[name='hobby']").val(["coding","swimming","dancing"]);
-	$("#city").val(["sh"]);
+	
+注意: 
+	获取radio,checkbox,select的值的时候要用each(callback)遍历
+		$("input[name='gender']:checked").each(function(){alert($(this).val());});
+		$("input[name='hobby']:checked").each(function(){alert($(this).val());});
+		$("select[name=city] option:selected").each(function(){alert($(this).val());});
+    设置radio,checkbox,select的时候,val(arr)的参数是String类型的arr
+		$("input[name='gender']").val(["male"]);
+		$("input[name='hobby']").val(["coding","swimming","dancing"]);
+		$("#city").val(["sh"]);

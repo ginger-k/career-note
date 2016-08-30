@@ -9,6 +9,7 @@
 
 
 文本	
+	color		文本颜色
 	text-align 	设置文本对齐方式
 				left 靠左对齐，默认
 				right 靠右对齐

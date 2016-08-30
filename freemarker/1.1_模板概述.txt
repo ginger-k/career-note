@@ -1,3 +1,5 @@
+中文文档：http://www.kerneler.com/freemarker2.3.23/
+
 Template + data-model = output
 模板 + 数据模型 = 输出
 
@@ -18,7 +20,7 @@ interpolations插值
 	${…},FreeMarker将会输出真实的值来替换花括号内的表达式
 	
 FTL tags 标签
-	#开头(freemarker定义)，@开头(自定义), 标签中不能适用插值
+	#开头(freemarker定义)，@开头(自定义), 标签中不能使用插值
 	
 Comments 注释
 	<#!-- comments -->
@@ -46,7 +48,7 @@ directives 指令
 		${tempNum}      
 		${tempNum?string.number}或${tempNum?string("number")}  结果为20  
 		${tempNum?string.currency}或${tempNum?string("currency")}  结果为￥20.00  
-		${tempNum?string. percent}或${tempNum?string("percent")}  结果为2,000%  
+		${tempNum?string.percent}或${tempNum?string("percent")}  结果为2,000%  
 	boolean
 		sex?string("公", "母")
 		user?starts_with("J")?string("是", "否")	链式调用插值

@@ -4,11 +4,13 @@
 【Ctrl+Shift+M】选中{}里全部内容，不包括{}
 【Ctrl+Shift+A】往上选中标签内容，不包括标签
 【Ctrl+Shift+←或→】选中某一部分
+
 行操作
 【Ctrl+Shift+D】复制当前行，或者直接Ctrl+C,Ctrl+V
 【Ctrl+X】删除当前行
 【Ctrl+L】选择行，重复可依次增加选择下一行
 【Ctrl+Shift+↑↓】上下移动行
+
 控制台
 【Ctrl+`】打开或关闭控制台
 【Ctrl+Shift+P】打开命令面板

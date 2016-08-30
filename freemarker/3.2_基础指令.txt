@@ -1,5 +1,0 @@
-<#assign>
-
-<#golable>
-
-<#local>
