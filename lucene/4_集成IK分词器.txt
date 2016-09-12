@@ -1,3 +1,9 @@
+
+原始版本：https://github.com/wks/ik-analyzer
+lucene5x：https://github.com/blueshen/ik-analyzer
+
+以下是lucene4的例子
+
 1.将jar包安装到本定仓库
 	mvn install:install-file -Dfile=D:\IKAnalyzer-2012-4x.jar -DgroupId=com.kuang.lucene.analyzer -DartifactId=ik-analyzer -Dversion=2012-4.x -Dpackaging=jar
 	

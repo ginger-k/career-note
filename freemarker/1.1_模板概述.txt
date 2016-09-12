@@ -23,7 +23,7 @@ FTL tags 标签
 	#开头(freemarker定义)，@开头(自定义), 标签中不能使用插值
 	
 Comments 注释
-	<#!-- comments -->
+	<#-- comments -->
 
 directives 指令
 	标签对，或者单标签

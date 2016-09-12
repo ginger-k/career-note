@@ -44,7 +44,7 @@ head：只看头几行
 tail：只看尾几行
 	tail -n 10 log.txt -- 显示后10行
 	tail -n +10 log.txt -- 不显示前10行
-	tail -f log.txt
+	tail -f log.txt -n 20
 od：以二进制的方式读取档案内容
 
 touch：修改文件时间或创建新文件
