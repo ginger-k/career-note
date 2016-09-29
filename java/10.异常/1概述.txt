@@ -16,6 +16,6 @@ Throwable：异常的顶层父类，超类
 
 异常的处理：
 	1.在方法上使用throws声明出去
-	2.在方法中使用tyr-catch-finally捕获
+	2.在方法中使用try-catch-finally捕获
 			 
     

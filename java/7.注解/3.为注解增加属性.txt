@@ -6,9 +6,9 @@
     @Target({ElementType.METHOD,ElementType.TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     @interface A{
-	String color() default "blue";//可以指定属性的默认值
-	String value();//仅有value属性时,可以省略属性名,直接写属性值
-     }
+		String color() default "blue";//可以指定属性的默认值
+		String value();//仅有value属性时,可以省略属性名,直接写属性值
+    }
 
 应用了"注解类"的类
     @A(color="red",value="abc")
@@ -17,13 +17,13 @@
 
 对"应用了注解类的类"进行反射操作的类(注解处理器)
     Class C{
-	public void main(String[] args){
-	    if(B.class.isAnnotationPresent(A.class)){
-	        A a=(A)B.class.getAnnotation(A.class);
-		System.out.println(a.color());//"red"
-		System.out.println(a.value());//"abc"
-	    }
-	}
+		public void main(String[] args){
+			if(B.class.isAnnotationPresent(A.class)){
+				A a=(A)B.class.getAnnotation(A.class);
+			System.out.println(a.color());//"red"
+			System.out.println(a.value());//"abc"
+			}
+		}
     }
 
 

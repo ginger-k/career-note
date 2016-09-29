@@ -1,5 +1,5 @@
 5种基本数据类型：Undefined，Null，Boolean，Number，String
-1种复杂数据类型：Object，包括Function,Array,Date
+1种复杂数据类型：Object，包括Function, Array, Date
 
 typeof操作符：可以操作变量，也可以操作数值字面量
 	"undefined" -- 值未定义或未声明

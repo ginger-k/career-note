@@ -11,16 +11,16 @@
 
 对"应用了注解类的类"进行反射操作的类
     Class C{
-	public void main(String[] args){
-	    if(B.class.isAnnotationPresent(A.class)){
-	        A a=(A)B.class.getAnnotation(A.class);
-	    }
-	}
+		public void main(String[] args){
+			if(B.class.isAnnotationPresent(A.class)){
+				A a=(A)B.class.getAnnotation(A.class);
+			}
+		}
     }
 
 元注解，给注解用的注解
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface MyAnnotation {
+	public @interface MyAnnotation {
     }
 @Retention元注解有3种取值：
     RetentionPolicy.SOURCE //注解保留到源文件,编译成class文件就没有了(编译前还有)
