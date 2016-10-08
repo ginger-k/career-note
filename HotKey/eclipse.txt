@@ -46,6 +46,10 @@
 搜索
 【Ctrl+H】打开搜索框
 
+切换
+【Ctrl+PgDn】下一个Tab
+【Ctrl+PgUp】上一个Tab
+
 
  
 【Ctrl+Shift+L】查看更多快捷键

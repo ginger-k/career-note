@@ -4,4 +4,4 @@
 
 3.变量转换成boolean类型: !!(a)
 
-4.装换成number类型: +(a),+(new Date())
+4.转换成number类型: +(a),+(new Date())
