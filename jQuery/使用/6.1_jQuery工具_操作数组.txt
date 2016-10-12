@@ -1,4 +1,4 @@
-±‰¡ø
+±È¿˙
 	$.each(array, function(index, item){});
 		$.each(['a','b','c'], function(i, n){
 		  console.log(i + ': ' + n );
