@@ -5,7 +5,7 @@
 
 	<th>
 		<#list ltList as lt>
-			<td></td>
+			<td>${lt}</td>
 		</#list>
 	</th>
 

@@ -7,7 +7,7 @@ top：持续侦测程序运行的状态
 	top -b -n 2 > /tmp/top.txt  --  将top的信息进行2次，结果输出到文件中
 	top -d 2 -p `echo $$`  -- 持续观察bash进程
 	
-	top -u esdev	esdev用户的进程内存使用情况
+	top -u esdev -- esdev用户的进程内存使用情况
 		PID：进程的ID
 	　　USER：进程所有者
 	　　PR：进程的优先级别，越小越优先被执行
