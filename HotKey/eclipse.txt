@@ -53,3 +53,7 @@
 
  
 【Ctrl+Shift+L】查看更多快捷键
+
+插件：
+	activiti - http://activiti.org/designer/update/
+	svn - http://subclipse.tigris.org/update_1.8.x

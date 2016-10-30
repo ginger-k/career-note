@@ -28,7 +28,7 @@
 	'<input type="hidden" name="remark" id="remark" value="">' +
 '</li>';
 var arry = [];
-html = html.replace(/<\/?[^>]*>/g,function (a){arry.push(a);return '<>';}); 
+html = html.replace(/<(?!img)\/?[^>]*>/g,function (a){arry.push(a);return '<>';}); 
 console.log(html); 
 html = html.replace(/手册/gi,'<font style="background-color: #FFFF00">手册</font>');  
 var i=0;  
