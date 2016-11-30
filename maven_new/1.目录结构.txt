@@ -20,3 +20,8 @@
     -DartifactId=mvntest -Dversion=1.0.0SNAPHOT 
     -Dpackage=com.imooc.mvntest
 	一下子就设置完
+	
+3.eclipse更新往往会出现进程卡死的现象
+	1)eclipse新建maven项目，关闭eclipse
+	2)记事本修改pom.xml
+	3)cmd进入项目目录，mvn clean install 命令下载jar包
