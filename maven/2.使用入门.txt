@@ -1,11 +1,15 @@
 maven项目的核心是pom.xml
 
 maven项目的目录结构
-	app/pom.xml
-	app/src/main/java
-	app/src/main/resources
-	app/src/test/java
-	app/src/test/resources
+	app
+	 |---pom.xml
+	 |---src
+		  |---main
+				|---java
+				|---resources
+		  |---test
+				|---java
+				|---resources
 	
 由于历史原因，maven的核心插件之一compiler插件默认只支持编译java1.3
 	<build>
