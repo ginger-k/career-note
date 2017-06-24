@@ -1,7 +1,0 @@
-http://www.runoob.com/nodejs/nodejs-tutorial.html
-
-《Node.js开发指南》
-
-http://cnodejs.org/
-http://javascript.ruanyifeng.com/#nodejs
-http://es6.ruanyifeng.com/
