@@ -10,3 +10,6 @@ vue-router
 	
 vuex×´Ì¬¹ÜÀí
 	npm install vuex --save
+	
+vue-resource
+	npm install vue-resource --save
