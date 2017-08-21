@@ -35,4 +35,4 @@
 说明：FreeMarkerView中的doRender(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)方法，
 	  会先把model和request中的数据重新组织成一个新的SimpleHash对象
 	  再做template.process(simpleHash, response.getWriter())
-	  所以，不需要想之前那样，自己设定一个数据模型的root
+	  所以，不需要像之前那样，自己设定一个数据模型的root
