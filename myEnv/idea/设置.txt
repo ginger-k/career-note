@@ -20,11 +20,10 @@
 		Code -> Completion -> Basic 设置为 Ctrl+, (原来Ctrl+空格与操作系统冲突)
 		
 	Editor -> Code Style -> Java
-		Code Generation -> Line comment at firt column -- 勾选，代码单行注释不在开头
+		Code Generation -> Line comment at firt column -- 不勾选，代码单行注释不在开头
 		
 	Appearance & Behavior -> System Settings
-		Confirm application exit -- 打开idea时，不是打开之前的项目
-	，哪些默认闭合
+		Reopen last project on startup -- 打开idea时，不是打开之前的项目，哪些默认闭合
 	
 	Project ->齿轮 -> Compact Empty Middle Packages -- 不折叠空包
 	

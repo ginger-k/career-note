@@ -1,0 +1,16 @@
+git config --list
+git config --global user.name "kuang135"
+git config --global user.email "490543013@qq.com"
+
+git init 工作目录中创建新仓库
+git add test.txt 添加到暂存区
+git status 检查当前状态
+git diff 比较工作目录中的文件和暂存区快照的差异
+git diff --cached(staged) 比较暂存区文件和上次提交时的快照的差异
+
+git commit 提交更新
+git commit -m "message"
+git commit -a 将已跟踪的文件暂存并提交，跳过 git add
+git rm test.txt 从暂存区移除,并从工作目录中删除
+git rm -f test.txt 删除之前修改过并且已经放到暂存区域的文件
+git rm --cached test.txt
