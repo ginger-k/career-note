@@ -92,6 +92,19 @@
 
 	<!-- 为构建行为提供相应的支持 -->
 	<build>
+		<!-- 资源文件 -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
 		<!-- 插件列表 -->
 		<plugins>
 			<!-- 配置tomcat插件 -->
